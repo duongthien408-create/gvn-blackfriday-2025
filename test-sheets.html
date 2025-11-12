@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Google Sheets Connection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 p-8">
+    <div class="container mx-auto">
+        <h1 class="text-3xl font-bold mb-6">Test Google Sheets API</h1>
+
+        <div class="bg-white rounded-lg shadow p-6 mb-6">
+            <h2 class="text-xl font-bold mb-4">Sheet Structure:</h2>
+            <div id="structure" class="font-mono text-sm"></div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-bold mb-4">Sample Data:</h2>
+            <div id="data" class="overflow-x-auto"></div>
+        </div>
+    </div>
+
+    <script>
+        const SPREADSHEET_ID = '1YyePVy2wxTNbcqriP1xGjy0xiIJuKzJtTsouv9rXuDw';
+        const API_KEY = 'AQ.Ab8RN6KEQsSpwo_9BCYCasgV720zkEvQH4j3L75s0rVaDikW9w';
+
+        async function loadSheetStructure() {
+            try {
+                // Get spreadsheet metadata
+                const metadataUrl = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}?key=${API_KEY}`;
+                const metadataResponse = await fetch(metadataUrl);
+                const metadata = await metadataResponse.json();
+
+                const structureDiv = document.getElementById('structure');
+                structureDiv.innerHTML = '<h3 class="font-bold mb-2">Available Sheets:</h3>';
+
+                if (metadata.sheets) {
+                    metadata.sheets.forEach(sheet => {
+                        structureDiv.innerHTML += `<div class="mb-2">📄 ${sheet.properties.title} (${sheet.properties.gridProperties.rowCount} rows × ${sheet.properties.gridProperties.columnCount} cols)</div>`;
+                    });
+                }
+
+                // Load sample data from first sheet
+                if (metadata.sheets && metadata.sheets.length > 0) {
+                    const firstSheetName = metadata.sheets[0].properties.title;
+                    await loadSampleData(firstSheetName);
+                }
+            } catch (error) {
+                document.getElementById('structure').innerHTML = `<div class="text-red-600">Error: ${error.message}</div>`;
+                console.error('Error:', error);
+            }
+        }
+
+        async function loadSampleData(sheetName) {
+            try {
+                const range = `${sheetName}!A1:Z10`; // First 10 rows, all columns
+                const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${range}?key=${API_KEY}`;
+                const response = await fetch(url);
+                const data = await response.json();
+
+                const dataDiv = document.getElementById('data');
+                if (data.values && data.values.length > 0) {
+                    let html = '<table class="w-full border-collapse border border-gray-300">';
+                    data.values.forEach((row, index) => {
+                        html += '<tr>';
+                        row.forEach(cell => {
+                            const tag = index === 0 ? 'th' : 'td';
+                            const className = index === 0 ? 'bg-blue-100 font-bold' : '';
+                            html += `<${tag} class="border border-gray-300 px-4 py-2 ${className}">${cell || ''}</${tag}>`;
+                        });
+                        html += '</tr>';
+                    });
+                    html += '</table>';
+                    dataDiv.innerHTML = html;
+                } else {
+                    dataDiv.innerHTML = '<div class="text-gray-500">No data found</div>';
+                }
+            } catch (error) {
+                document.getElementById('data').innerHTML = `<div class="text-red-600">Error loading data: ${error.message}</div>`;
+                console.error('Error:', error);
+            }
+        }
+
+        // Load on page load
+        loadSheetStructure();
+    </script>
+</body>
+</html>

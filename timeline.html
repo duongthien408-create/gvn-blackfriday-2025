@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline Chương Trình | BLACK FRIDAY GEARVN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .timeline-line {
+            position: relative;
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+            transform: translateX(-50%);
+        }
+        @media (max-width: 768px) {
+            .timeline-line::before {
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-6">
+            <h1 class="text-4xl font-bold text-center mb-2">TIMELINE CHƯƠNG TRÌNH</h1>
+            <p class="text-center text-xl opacity-90">Lộ Trình Chi Tiết Black Friday 2025</p>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="bg-white shadow-md sticky top-24 z-40">
+        <div class="container mx-auto px-4">
+            <ul class="flex flex-wrap justify-center gap-2 py-4">
+                <li><a href="index.html" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition">Tổng Quan</a></li>
+                <li><a href="layer1.html" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition">Layer 1 - Deal Sốc</a></li>
+                <li><a href="layer2.html" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition">Layer 2 - Giá Sốc</a></li>
+                <li><a href="guidelines.html" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition">Hướng Dẫn & Quy Định</a></li>
+                <li><a href="timeline.html" class="px-6 py-2 bg-orange-600 text-white rounded-full font-semibold hover:bg-orange-700 transition">Timeline</a></li>
+                <li><a href="livestream.html" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition">Livestream Bốc Thăm</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+
+        <!-- Overview Timeline -->
+        <section class="mb-12">
+            <div class="bg-gradient-to-r from-orange-500 to-red-500 rounded-xl shadow-2xl p-8 text-white">
+                <h2 class="text-3xl font-bold mb-6 text-center">📅 TỔNG QUAN TIMELINE</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white/20 backdrop-blur rounded-lg p-6 text-center">
+                        <div class="text-4xl mb-2">📢</div>
+                        <h3 class="text-xl font-bold mb-2">Giai Đoạn 1</h3>
+                        <p class="text-lg">TEASING</p>
+                        <p class="text-sm opacity-90">11/13 - 11/17</p>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur rounded-lg p-6 text-center">
+                        <div class="text-4xl mb-2">🔥</div>
+                        <h3 class="text-xl font-bold mb-2">Giai Đoạn 2</h3>
+                        <p class="text-lg">HÂM NÓNG</p>
+                        <p class="text-sm opacity-90">11/18 - 11/27</p>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur rounded-lg p-6 text-center">
+                        <div class="text-4xl mb-2">🎯</div>
+                        <h3 class="text-xl font-bold mb-2">Giai Đoạn 3</h3>
+                        <p class="text-lg">BLACK FRIDAY</p>
+                        <p class="text-sm opacity-90">28 - 29 - 30/11</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Timeline -->
+        <section class="relative">
+            <div class="timeline-line">
+
+                <!-- PHASE 1: TEASING -->
+                <div class="mb-16">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-purple-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mr-4">1</div>
+                            <div>
+                                <h2 class="text-3xl font-bold text-purple-600">GIAI ĐOẠN TEASING</h2>
+                                <p class="text-gray-600 text-lg">11/13 - 11/17 (5 ngày)</p>
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <!-- 11/13 -->
+                            <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
+                                <p class="font-bold text-purple-800 mb-2">📅 11/13 (Thứ 5)</p>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Teasing Phase 1</li>
+                                </ul>
+                            </div>
+
+                            <!-- 11/14 -->
+                            <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
+                                <p class="font-bold text-purple-800 mb-2">📅 11/14 (Thứ 6)</p>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Teasing Phase 2</li>
+                                </ul>
+                            </div>
+
+                            <!-- 11/15 -->
+                            <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
+                                <p class="font-bold text-purple-800 mb-2">📅 11/15 (Thứ 7)</p>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Teasing Phase 3</li>
+                                    <li>• Sẵn sàng</li>
+                                </ul>
+                            </div>
+
+                            <!-- 11/16 -->
+                            <div class="bg-purple-100 p-4 rounded-lg border-l-4 border-purple-700">
+                                <p class="font-bold text-purple-900 mb-2">📅 11/16 (Chủ Nhật)</p>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• <strong>Công bố ĐẤU ÔNG</strong></li>
+                                    <li>• Quốc tế Đấu Ông</li>
+                                </ul>
+                            </div>
+
+                            <!-- 11/17 -->
+                            <div class="bg-purple-100 p-4 rounded-lg border-l-4 border-purple-700">
+                                <p class="font-bold text-purple-900 mb-2">📅 11/17 (Thứ 2)</p>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Post: Giới thiệu tổng quan chương trình</li>
+                                    <li>• Format: Bộ Ảnh</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PHASE 2: HÂM NÓNG -->
+                <div class="mb-16">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-orange-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mr-4">2</div>
+                            <div>
+                                <h2 class="text-3xl font-bold text-orange-600">GIAI ĐOẠN HÂM NÓNG</h2>
+                                <p class="text-gray-600 text-lg">11/18 - 11/27 (10 ngày)</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <!-- 11/18 -->
+                            <div class="bg-orange-50 p-5 rounded-lg border-l-4 border-orange-500">
+                                <p class="font-bold text-orange-800 mb-2">📅 11/18 (Thứ 3)</p>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• <strong>Post: Cách thức mua hàng</strong></li>
+                                    <li>• Format: Bộ Ảnh</li>
+                                    <li>• TBD (To Be Determined)</li>
+                                </ul>
+                            </div>
+
+                            <!-- 11/19 -->
+                            <div class="bg-orange-50 p-5 rounded-lg border-l-4 border-orange-500">
+                                <p class="font-bold text-orange-800 mb-2">📅 11/19 (Thứ 4)</p>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Teasing Deal - Layer 01 (Phụ tùng 98%)</li>
+                                    <li>• Teasing Deal - Layer 02 (Phụ tùng 50%)</li>
+                                    <li>• TBD</li>
+                                </ul>
+                            </div>
+
+                            <!-- 11/20 -->
+                            <div class="bg-orange-100 p-5 rounded-lg border-l-4 border-orange-700">
+                                <p class="font-bold text-orange-900 mb-2">📅 11/20 (Thứ 5)</p>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• <strong>Nhà giàu Việt Nam</strong></li>
+                                    <li>• Post: Thể lệ mua Layer 1</li>
+                                    <li>• Format: Bộ Ảnh</li>
+                                    <li>• TBD</li>
+                                </ul>
+                            </div>
+
+                            <!-- 11/21 -->
+                            <div class="bg-orange-100 p-5 rounded-lg border-l-4 border-orange-700">
+                                <p class="font-bold text-orange-900 mb-2">📅 11/21 (Thứ 6)</p>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• <strong>Post: Voucher 10 triệu liên kết bán phần</strong></li>
+                                    <li>• Post: Thể lệ mua Layer 2</li>
+                                    <li>• Format: Bộ Ảnh</li>
+                                    <li>• TBD</li>
+                                </ul>
+                            </div>
+
+                            <!-- 11/22 -->
+                            <div class="bg-orange-100 p-5 rounded-lg border-l-4 border-orange-700">
+                                <p class="font-bold text-orange-900 mb-2">📅 11/22 (Thứ 7)</p>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• <strong>Post: Thể lệ Give Away - Livestream</strong></li>
+                                    <li>• Format: Bộ Ảnh</li>
+                                    <li>• TBD</li>
+                                </ul>
+                            </div>
+
+                            <!-- 11/23 -->
+                            <div class="bg-orange-50 p-5 rounded-lg border-l-4 border-orange-500">
+                                <p class="font-bold text-orange-800 mb-2">📅 11/23 (Chủ Nhật)</p>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Teasing Deal - Layer 01 (Phụ tùng 98%)</li>
+                                    <li>• Teasing Deal - Layer 02 (Phụ tùng 50%)</li>
+                                    <li>• TBD</li>
+                                </ul>
+                            </div>
+
+                            <!-- 11/24 -->
+                            <div class="bg-yellow-100 p-5 rounded-lg border-l-4 border-yellow-500">
+                                <p class="font-bold text-yellow-900 mb-2">📅 11/24 (Thứ 2) - TUẦN BLACK FRIDAY</p>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• <strong>GA Mini hình Viewsonic</strong> - Mở màn tuần BF Black Friday</li>
+                                    <li>• Post: Thể lệ mua Xếp Hàng</li>
+                                    <li>• Format: Bộ Ảnh</li>
+                                    <li>• TBD</li>
+                                </ul>
+                            </div>
+
+                            <!-- 11/25 -->
+                            <div class="bg-red-50 p-5 rounded-lg border-l-4 border-red-500">
+                                <p class="font-bold text-red-800 mb-2">📅 11/25 (Thứ 3)</p>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Teasing Deal - Layer 01 (Phụ tùng 98%)</li>
+                                    <li>• Teasing Deal - Layer 02 (Phụ tùng 50%)</li>
+                                    <li>• TBD</li>
+                                </ul>
+                            </div>
+
+                            <!-- 11/26 -->
+                            <div class="bg-red-50 p-5 rounded-lg border-l-4 border-red-500">
+                                <p class="font-bold text-red-800 mb-2">📅 11/26 (Thứ 4)</p>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Post Update Tình hình - Sản Sales - Xếp hàng trúng đêm</li>
+                                    <li>• Post Update Deal Ngày 01 - Final</li>
+                                    <li>• TBD</li>
+                                </ul>
+                            </div>
+
+                            <!-- 11/27 -->
+                            <div class="bg-red-100 p-5 rounded-lg border-l-4 border-red-700">
+                                <p class="font-bold text-red-900 mb-2">📅 11/27 (Thứ 5)</p>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Post Update Tình hình - Sản Sales - Xếp hàng trúng đêm</li>
+                                    <li>• Teasing Deal - Layer 01 (Phụ tùng 98%)</li>
+                                    <li>• Teasing Deal - Layer 02 (Phụ tùng 50%)</li>
+                                    <li>• TBD</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PHASE 3: BLACK FRIDAY -->
+                <div class="mb-16">
+                    <div class="bg-gradient-to-br from-red-600 to-pink-600 rounded-xl shadow-2xl p-8 text-white">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-white text-red-600 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mr-4">3</div>
+                            <div>
+                                <h2 class="text-4xl font-bold">BLACK FRIDAY CHÍNH THỨC</h2>
+                                <p class="text-xl opacity-90">28 - 29 - 30/11 (3 ngày)</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <!-- DAY 1 -->
+                            <div class="bg-white/20 backdrop-blur rounded-xl p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-red-500 text-white px-6 py-3 rounded-full font-bold text-xl mr-4">DAY 1</div>
+                                    <div>
+                                        <h3 class="text-2xl font-bold">28/11 (Thứ 6)</h3>
+                                    </div>
+                                </div>
+                                <div class="bg-white/30 backdrop-blur p-5 rounded-lg">
+                                    <ul class="space-y-2">
+                                        <li class="flex items-start">
+                                            <span class="text-yellow-300 mr-2 text-xl">🔥</span>
+                                            <span><strong>70 Deal Layer 01</strong> (Phụ tùng 98% - Tăng số lượng Kad)</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-blue-300 mr-2 text-xl">⚡</span>
+                                            <span>Teasing Deal - Layer 02 (Phụ tùng 50% - Tăng số lượng Kad)</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-green-300 mr-2 text-xl">📱</span>
+                                            <span><strong>Post Update Tình hình</strong> - Sản Sales - Xếp hàng trúng đêm</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-purple-300 mr-2 text-xl">📊</span>
+                                            <span>TBD</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- DAY 2 -->
+                            <div class="bg-white/20 backdrop-blur rounded-xl p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-orange-500 text-white px-6 py-3 rounded-full font-bold text-xl mr-4">DAY 2</div>
+                                    <div>
+                                        <h3 class="text-2xl font-bold">29/11 (Thứ 7)</h3>
+                                    </div>
+                                </div>
+                                <div class="bg-white/30 backdrop-blur p-5 rounded-lg">
+                                    <ul class="space-y-2">
+                                        <li class="flex items-start">
+                                            <span class="text-yellow-300 mr-2 text-xl">🔥</span>
+                                            <span><strong>48 Deal Layer 01</strong> (Phụ tùng 98% - Tăng số lượng Kad)</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-blue-300 mr-2 text-xl">⚡</span>
+                                            <span>Teasing Deal - Layer 02 (Phụ tùng 50% - Tăng số lượng Kad)</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-green-300 mr-2 text-xl">📱</span>
+                                            <span><strong>Post Update Tình hình</strong> - Sản Sales - Xếp hàng trúng đêm</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-pink-300 mr-2 text-xl">✅</span>
+                                            <span><strong>Post Update Deal Ngày 01 - Final</strong></span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-purple-300 mr-2 text-xl">📊</span>
+                                            <span>TBD</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- DAY 3 -->
+                            <div class="bg-white/20 backdrop-blur rounded-xl p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-purple-500 text-white px-6 py-3 rounded-full font-bold text-xl mr-4">DAY 3</div>
+                                    <div>
+                                        <h3 class="text-2xl font-bold">30/11 (Chủ Nhật)</h3>
+                                    </div>
+                                </div>
+                                <div class="bg-white/30 backdrop-blur p-5 rounded-lg">
+                                    <ul class="space-y-2">
+                                        <li class="flex items-start">
+                                            <span class="text-yellow-300 mr-2 text-xl">🔥</span>
+                                            <span><strong>30 Deal Layer 01</strong> (Phụ tùng 98% - Tăng số lượng Kad)</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-blue-300 mr-2 text-xl">⚡</span>
+                                            <span>Teasing Deal - Layer 02 (Phụ tùng 50% - Tăng số lượng Kad)</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-green-300 mr-2 text-xl">📱</span>
+                                            <span><strong>Post Update Tình hình</strong> - Sản Sales - Xếp hàng trúng đêm</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-pink-300 mr-2 text-xl">✅</span>
+                                            <span><strong>Post Update Deal Ngày 02 - Final</strong></span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-cyan-300 mr-2 text-xl">🎥</span>
+                                            <span><strong>Livestream</strong> công bố GA Mua hàng trở về Mua hàng</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="text-purple-300 mr-2 text-xl">📊</span>
+                                            <span>TBD</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Summary Day -->
+                        <div class="mt-8 bg-white/20 backdrop-blur rounded-xl p-6">
+                            <h3 class="text-2xl font-bold mb-4 text-center">📊 Tổng Kết 3 Ngày</h3>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div class="bg-white/30 backdrop-blur p-4 rounded-lg text-center">
+                                    <p class="text-4xl font-bold">148</p>
+                                    <p>Deal Layer 1</p>
+                                </div>
+                                <div class="bg-white/30 backdrop-blur p-4 rounded-lg text-center">
+                                    <p class="text-4xl font-bold">300+</p>
+                                    <p>Deal Layer 2</p>
+                                </div>
+                                <div class="bg-white/30 backdrop-blur p-4 rounded-lg text-center">
+                                    <p class="text-4xl font-bold">24/7</p>
+                                    <p>Support Team</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Content Pillars -->
+        <section class="mb-12">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">📝 Content Pillars</h2>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-blue-800 mb-4">Fanpage Tương Tác - Viral</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li>• GA Quiz: Ô đấu đầu (Đoán nội dụng đặt hàng bất kể)</li>
+                            <li>• GA Mini hình Viewsonic mở màn tuần BF Black Friday</li>
+                            <li>• Các post tương tác để tăng reach</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-purple-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-purple-800 mb-4">Trong Chương Trình</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li>• Post Update Deal Ngày 01 - Final</li>
+                            <li>• Post Update Deal Ngày 02 - Final</li>
+                            <li>• Post Update Tình hình Sản Sales - Xếp hàng - Xếp hàng trúng đêm</li>
+                            <li>• Livestream công bố GA Mua hàng</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-6 bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded">
+                    <p class="text-yellow-800"><strong>Lưu ý:</strong> TBD (To Be Determined) - Các nội dung sẽ được xác định cụ thể sau</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Dates Summary -->
+        <section class="mb-12">
+            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl shadow-2xl p-8 text-white">
+                <h2 class="text-3xl font-bold mb-6 text-center">🗓️ NGÀY QUAN TRỌNG</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-white/20 backdrop-blur rounded-lg p-4 text-center">
+                        <p class="text-sm opacity-90 mb-1">Công bố ĐẤU ÔNG</p>
+                        <p class="text-2xl font-bold">11/16</p>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur rounded-lg p-4 text-center">
+                        <p class="text-sm opacity-90 mb-1">GA Mini Viewsonic</p>
+                        <p class="text-2xl font-bold">11/24</p>
+                    </div>
+                    <div class="bg-white/30 backdrop-blur rounded-lg p-4 text-center border-2 border-white">
+                        <p class="text-sm opacity-90 mb-1">BLACK FRIDAY Day 1</p>
+                        <p class="text-3xl font-bold">28/11</p>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur rounded-lg p-4 text-center">
+                        <p class="text-sm opacity-90 mb-1">Livestream Final</p>
+                        <p class="text-2xl font-bold">30/11</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Back Button -->
+        <div class="text-center">
+            <a href="index.html" class="inline-block bg-orange-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-orange-700 transition">
+                ← Quay Lại Trang Chủ
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg font-semibold mb-2">BLACK FRIDAY 2025 - GEARVN</p>
+            <p class="opacity-75">Timeline Chương Trình</p>
+        </div>
+    </footer>
+</body>
+</html>

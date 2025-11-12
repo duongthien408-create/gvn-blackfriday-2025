@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layer 2 - Giá Giảm Sốc | BLACK FRIDAY GEARVN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-6">
+            <h1 class="text-4xl font-bold text-center mb-2">LAYER 2: GIÁ GIẢM SỐC</h1>
+            <p class="text-center text-xl opacity-90">Giá Thấp Nhất Thị Trường - Không Bao Gồm Layer 1</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-24 z-40">
+        <div class="container mx-auto px-4">
+            <ul class="flex flex-wrap justify-center gap-2 py-4">
+                <li><a href="index.html" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition">Tổng Quan</a></li>
+                <li><a href="layer1.html" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition">Layer 1 - Deal Sốc</a></li>
+                <li><a href="layer2-full.html" class="px-6 py-2 bg-purple-600 text-white rounded-full font-semibold hover:bg-purple-700 transition">Layer 2 - Giá Sốc</a></li>
+                <li><a href="guidelines.html" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition">Hướng Dẫn</a></li>
+                <li><a href="timeline.html" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition">Timeline</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Search and Filter -->
+        <section class="mb-6">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <input type="text" id="searchInput" onkeyup="searchProducts()"
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                               placeholder="Tìm kiếm sản phẩm...">
+                    </div>
+                    <div>
+                        <select id="categoryFilter" onchange="filterByCategory()"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500">
+                            <option value="">Tất cả ngành hàng</option>
+                            <option value="LCD">Màn hình (LCD)</option>
+                            <option value="Peri">Phụ kiện (Peri)</option>
+                            <option value="Laptop">Laptop</option>
+                            <option value="Card màn hình">Card màn hình (VGA)</option>
+                            <option value="Mainboard">Mainboard</option>
+                            <option value="RAM">RAM</option>
+                            <option value="SSD">SSD</option>
+                            <option value="CPU">CPU</option>
+                            <option value="Case">Case</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="text-sm text-gray-600">
+                    Tổng: <span id="productCount" class="font-bold text-purple-600">0</span> sản phẩm
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Table -->
+        <section>
+            <div class="bg-white rounded-xl shadow-lg overflow-x-auto">
+                <table class="w-full text-sm" id="productsTable">
+                    <thead class="bg-purple-100 sticky top-0">
+                        <tr>
+                            <th class="px-4 py-3 text-left font-bold text-purple-800">STT</th>
+                            <th class="px-4 py-3 text-left font-bold text-purple-800">Sản Phẩm</th>
+                            <th class="px-4 py-3 text-left font-bold text-purple-800">Ngành Hàng</th>
+                            <th class="px-4 py-3 text-right font-bold text-purple-800">Giá NY</th>
+                            <th class="px-4 py-3 text-right font-bold text-purple-800">Giá KM</th>
+                            <th class="px-4 py-3 text-center font-bold text-purple-800">% Giảm</th>
+                            <th class="px-4 py-3 text-center font-bold text-purple-800">SL</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsBody" class="divide-y">
+                        <!-- Products will be loaded by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Back Button -->
+        <div class="text-center mt-8">
+            <a href="index.html" class="inline-block bg-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-700 transition">
+                ← Quay Lại Trang Chủ
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg font-semibold mb-2">BLACK FRIDAY 2025 - GEARVN</p>
+            <p class="opacity-75">Layer 2: Giá Giảm Sốc - Giá Thấp Nhất Thị Trường</p>
+        </div>
+    </footer>
+
+    <script>
+        // All Layer 2 products from CSV (excluding ALL Layer 1 products)
+        const allProducts = [
+            {name: "Thiết bị kết nối chuột không dây Pulsar 8K Dongle Black", category: "Peri", originalPrice: 529000, salePrice: 9000, discount: 98, quantity: 9},
+            {name: "Củ Sạc Ugreen PD 20W Bl CD137 50799", category: "Peri", originalPrice: 460000, salePrice: 10000, discount: 98, quantity: 6},
+            {name: "Lót chuột AKKO Mini Pad Corgi Butt", category: "Peri", originalPrice: 179000, salePrice: 10000, discount: 94, quantity: 10},
+            {name: "Cổng chuyển HyperDrive 6 in 1 4K60Hz for iMac 24 HD34A8", category: "Peri", originalPrice: 1590000, salePrice: 190000, discount: 88, quantity: 6},
+            {name: "Cổng chuyển HyperDrive 5 in 1 for iMac 24 HD34A6", category: "Peri", originalPrice: 690000, salePrice: 90000, discount: 87, quantity: 7},
+            {name: "Sạc nhanh Ugreen Robot CD361 15570 3 cổng USB-C và USB-A GaN 65W (SpaceGray)", category: "Peri", originalPrice: 900000, salePrice: 90000, discount: 90, quantity: 7},
+            {name: "Sạc nhanh Ugreen Robot CD361 35314 cổng USB-C và USB-A GaN 65W (Tím)", category: "Peri", originalPrice: 900000, salePrice: 90000, discount: 90, quantity: 11},
+            {name: "Kê chân công thái học Warrior Ergonomic Footrest WEF101", category: "Peri", originalPrice: 599000, salePrice: 90000, discount: 85, quantity: 70},
+            {name: "Chuột Pulsar có dây X2 Medium White", category: "Peri", originalPrice: 1390000, salePrice: 190000, discount: 86, quantity: 2},
+            {name: "Lót chuột TeamGroup", category: "Peri", originalPrice: 100000, salePrice: 20000, discount: 80, quantity: 100},
+            {name: "Quạt du lịch cầm tay Jisulife Super mini Turbo fan FA42 White J2170", category: "Peri", originalPrice: 350000, salePrice: 40000, discount: 89, quantity: 137},
+            {name: "Lót chuột AKKO King's Avatar-Ye Xiu", category: "Peri", originalPrice: 450000, salePrice: 100000, discount: 78, quantity: 30},
+            {name: "Quạt du lịch cầm tay Jisulife F2B White J1975", category: "Peri", originalPrice: 320000, salePrice: 40000, discount: 88, quantity: 10},
+            {name: "Quạt du lịch cầm tay Jisulife F2B Blue J1999", category: "Peri", originalPrice: 320000, salePrice: 40000, discount: 88, quantity: 10},
+            {name: "Quạt du lịch cầm tay Jisulife F2B Pink J1982", category: "Peri", originalPrice: 320000, salePrice: 40000, discount: 88, quantity: 14},
+            {name: "Chuột AKKO Smart 1 Sailor Moon", category: "Peri", originalPrice: 369000, salePrice: 90000, discount: 76, quantity: 100},
+            {name: "Lót chuột GEARVN Da Pu Hồng (450x400x2)", category: "Peri", originalPrice: 190000, salePrice: 20000, discount: 89, quantity: 90},
+            {name: "Lót chuột Corsair MM500 V2 Large", category: "Peri", originalPrice: 900000, salePrice: 290000, discount: 68, quantity: 13},
+            {name: "Tai nghe Onikuma Tai Mèo B5 RGB Tri Mode Trắng", category: "Peri", originalPrice: 1190000, salePrice: 390000, discount: 67, quantity: 14},
+            {name: "Tai nghe Onikuma Tai Mèo B5 RGB Tri Mode Hồng", category: "Peri", originalPrice: 1190000, salePrice: 390000, discount: 67, quantity: 7},
+            {name: "Bàn phím AKKO ACR Pro Alice Plus Spray Paint White AKKO CS switch", category: "Peri", originalPrice: 2990000, salePrice: 1290000, discount: 57, quantity: 30},
+            {name: "Màn hình ViewSonic VA2215-H 22\" 100Hz FHD", category: "LCD", originalPrice: 3600000, salePrice: 1490000, discount: 59, quantity: "KGH"},
+            {name: "Chuột ASUS ROG Strix Impact III Wireless White", category: "Peri", originalPrice: 2200000, salePrice: 490000, discount: 78, quantity: 15},
+            {name: "Loa Edifier Bluetooth ES300 Ivory", category: "Peri", originalPrice: 4990000, salePrice: 1990000, discount: 60, quantity: 5},
+            {name: "Loa Edifier Bluetooth ES300 Black", category: "Peri", originalPrice: 4990000, salePrice: 1990000, discount: 60, quantity: 2},
+            {name: "Màn hình LG 27GR93U-B UltraGear 27\" IPS 4K 144Hz Gsync chuyên game", category: "LCD", originalPrice: 19990000, salePrice: 8290000, discount: 59, quantity: "KGH"},
+            {name: "Camera WIFI UNV IPC-S3E-M3 (3MP - Quay quét - Đàm thoại 2 chiều)", category: "Peri", originalPrice: 690000, salePrice: 190000, discount: 72, quantity: 20},
+            {name: "MB-GIG-Z790-AORUS-XTRE-X-ICE-D5", category: "Mainboard", originalPrice: 49990000, salePrice: 19990000, discount: 60, quantity: 2},
+            {name: "Màn hình Asus ROG Strix XG27AQDMG 27\" WOLED 2K 240Hz HDR10 Gsync chuyên game", category: "LCD", originalPrice: 29990000, salePrice: 14490000, discount: 52, quantity: "KGH"},
+            {name: "Màn hình ViewSonic VX2882-4KP 28\" IPS 4K 150Hz HDR10 USBC", category: "LCD", originalPrice: 15990000, salePrice: 7690000, discount: 52, quantity: 10},
+            {name: "Loa Onikuma Bluetooth L7 RGB kèm Micro Trắng", category: "Peri", originalPrice: 890000, salePrice: 390000, discount: 56, quantity: 5},
+            {name: "Loa Onikuma Bluetooth L7 RGB kèm Micro Đen", category: "Peri", originalPrice: 890000, salePrice: 390000, discount: 56, quantity: 5},
+            {name: "Lót chuột Razer Acari", category: "Peri", originalPrice: 1490000, salePrice: 800000, discount: 46, quantity: 5},
+            {name: "Chuột AULA SC800 Black 3 MODE 8K (SC80002)", category: "Peri", originalPrice: 1319000, salePrice: 590000, discount: 55, quantity: 7},
+            {name: "Sạc dự phòng Recci RPB-P12C Blue", category: "Peri", originalPrice: 470000, salePrice: 190000, discount: 60, quantity: 7},
+            {name: "Loa Edifier Bluetooth ES20 Black", category: "Peri", originalPrice: 1490000, salePrice: 490000, discount: 67, quantity: 6},
+            {name: "Bộ sạc nhanh GaN 100W Ugreen CD226 15336 (Trắng)", category: "Peri", originalPrice: 1490000, salePrice: 490000, discount: 67, quantity: 4},
+            {name: "Bàn phím AKKO YU01 Antique Jade V3 Piano Pro switch", category: "Peri", originalPrice: 3390000, salePrice: 1590000, discount: 53, quantity: 11},
+            {name: "Màn hình di động Asus ZenScreen MB169CK 16\" IPS FHD USBC", category: "LCD", originalPrice: 4990000, salePrice: 2590000, discount: 48, quantity: "KGH"},
+            {name: "Bàn phím AKKO YU01 White Jade V3 Piano Pro switch", category: "Peri", originalPrice: 3390000, salePrice: 1590000, discount: 53, quantity: 17},
+            {name: "Màn hình Viewsonic VA2432A-H 24\" IPS 120Hz viền mỏng", category: "LCD", originalPrice: 3590000, salePrice: 1990000, discount: 45, quantity: "KGH"},
+            {name: "Tay cầm điện thoại Razer Kishi V2 USB-C (RZ06-05110100-R3M1)", category: "Peri", originalPrice: 2390000, salePrice: 1400000, discount: 41, quantity: 10},
+            {name: "Màn hình LG 27GS95QE-B UltraGear 27\" OLED 2K 240Hz G-Sync", category: "LCD", originalPrice: 24990000, salePrice: 14590000, discount: 42, quantity: "KGH"},
+            {name: "Ghế công thái học E-Dra EEC228", category: "Peri", originalPrice: 1790000, salePrice: 890000, discount: 50, quantity: 20},
+            {name: "Màn hình LG 45GS95QE-B UltraGear 45\" OLED 2K 240Hz G-Sync", category: "LCD", originalPrice: 41290000, salePrice: 23900000, discount: 42, quantity: "KGH"},
+            {name: "Ghế DXRACER Master-Microfiber Leather-Black-Black Stitches-XL (GC/XLME23LTD/N)", category: "Peri", originalPrice: 9900000, salePrice: 5990000, discount: 39, quantity: 6},
+            {name: "Ghế DXRACER GAMING CHAIR Master-Microfiber Leather-Coffee-XL (GC/XLME23LTD/C)", category: "Peri", originalPrice: 9900000, salePrice: 5990000, discount: 39, quantity: 5},
+            {name: "Ghế DXRACER GAMING CHAIR Master-Microfiber Leather-Red-XL (GC/XLME23LTD/R)", category: "Peri", originalPrice: 9900000, salePrice: 5990000, discount: 39, quantity: 5},
+            {name: "Tai nghe Onikuma In-ear T20 TWS Bluetooth Đen", category: "Peri", originalPrice: 840000, salePrice: 390000, discount: 54, quantity: 61},
+            {name: "Tai nghe Onikuma In-ear T20 TWS Bluetooth Trắng", category: "Peri", originalPrice: 840000, salePrice: 390000, discount: 54, quantity: 30},
+            {name: "Tai nghe Onikuma In-ear T302 TWS RGB Bluetooth Hồng", category: "Peri", originalPrice: 840000, salePrice: 390000, discount: 54, quantity: 20},
+            {name: "Tai nghe Onikuma In-ear T302 TWS RGB Bluetooth Xám Trắng", category: "Peri", originalPrice: 840000, salePrice: 390000, discount: 54, quantity: 16},
+            {name: "Ghế công thái học WARRIOR Ergonomic Marshal WEC620", category: "Peri", originalPrice: 4790000, salePrice: 2990000, discount: 38, quantity: 5},
+            {name: "Ghế công thái học WARRIOR Ergonomic Marshal WEC630 Black", category: "Peri", originalPrice: 4790000, salePrice: 2990000, discount: 38, quantity: 5},
+            {name: "Ghế công thái học WARRIOR Ergonomic Marshal WEC610 Black", category: "Peri", originalPrice: 4690000, salePrice: 2990000, discount: 36, quantity: 5},
+            {name: "Màn hình Asus TUF GAMING VG279QE5A-R 27\" IPS 146Hz chuyên game", category: "LCD", originalPrice: 4990000, salePrice: 2890000, discount: 42, quantity: "KGH"},
+            {name: "Màn hình MSI MAG 273QP QD-OLED X24 27\" QD-OLED 2K 240Hz", category: "LCD", originalPrice: 23990000, salePrice: 13190000, discount: 45, quantity: "KGH"},
+            {name: "Bàn phím không dây AKKO 3098 RF World Tour London V3 Cream Blue Pro", category: "Peri", originalPrice: 1690000, salePrice: 900000, discount: 47, quantity: 44},
+            {name: "Màn hình ViewSonic VX3276-2K-MHD-2 32\" IPS 2K 75Hz HDR10", category: "LCD", originalPrice: 8190000, salePrice: 4950000, discount: 40, quantity: "KGH"},
+            {name: "Màn hình ViewSonic VX2779-HD-PRO 27\" IPS 180Hz chuyên game", category: "LCD", originalPrice: 4990000, salePrice: 2990000, discount: 40, quantity: "KGH"},
+            {name: "Màn hình GIGABYTE MO27Q28G 27\" WOLED 2K 280Hz chuyên game", category: "LCD", originalPrice: 24990000, salePrice: 14990000, discount: 40, quantity: "KGH"},
+            {name: "Màn hình ViewSonic VX2779A-HD-PRO 27\" IPS 240Hz 1ms chuyên game", category: "LCD", originalPrice: 5590000, salePrice: 3390000, discount: 39, quantity: "KGH"},
+            {name: "Tai nghe Onikuma In-ear T209 Bluetooth Live Translation Đen", category: "Peri", originalPrice: 790000, salePrice: 390000, discount: 51, quantity: 10},
+            {name: "Tai nghe Onikuma In-ear T18 ENC Bluetooth Trắng", category: "Peri", originalPrice: 790000, salePrice: 390000, discount: 51, quantity: 9},
+            {name: "Tai nghe Onikuma In-ear T18 ENC Bluetooth Đen", category: "Peri", originalPrice: 790000, salePrice: 390000, discount: 51, quantity: 9},
+            {name: "VO-THER-CTE-T500-TG-ARGB-SNOW", category: "Case", originalPrice: 3690000, salePrice: 1990000, discount: 46, quantity: 3},
+            {name: "Màn hình GIGABYTE G25F2 25\" IPS 200Hz chuyên game", category: "LCD", originalPrice: 4490000, salePrice: 2690000, discount: 40, quantity: "KGH"},
+            {name: "BlackShark V2 X For PlayStation", category: "Peri", originalPrice: 1600000, salePrice: 700000, discount: 56, quantity: 20},
+            {name: "Màn hình MSI MAG 244F 24\" Rapid IPS 200Hz chuyên game", category: "LCD", originalPrice: 3990000, salePrice: 2190000, discount: 45, quantity: "KGH"},
+            {name: "Màn hình Asus TUF GAMING VG249QE5A-R 24\" IPS 146Hz chuyên game", category: "LCD", originalPrice: 3990000, salePrice: 2390000, discount: 40, quantity: "KGH"},
+            {name: "Màn hình LG 27U631A-B 27\" IPS 2K 100Hz HDR10", category: "LCD", originalPrice: 6590000, salePrice: 4050000, discount: 39, quantity: "KGH"},
+            {name: "Màn hình AOC Q27G11E 27\" IPS 2K 180Hz chuyên game", category: "LCD", originalPrice: 5990000, salePrice: 3790000, discount: 37, quantity: "KGH"},
+            {name: "Màn hình ViewSonic VA3209-2K-MHD 32\" IPS 2K 75Hz HDR10", category: "LCD", originalPrice: 6690000, salePrice: 4290000, discount: 36, quantity: "KGH"},
+            {name: "Màn hình E-DRA EGM27F120PV 27\" IPS 120Hz", category: "LCD", originalPrice: 3190000, salePrice: 1790000, discount: 44, quantity: "KGH"},
+            {name: "Tai nghe Razer Kraken V4 X - Minecraft Edition", category: "Peri", originalPrice: 2890000, salePrice: 1990000, discount: 31, quantity: 2},
+            {name: "Màn hình LG 24GS60F-B 24\" IPS 180Hz HDR10 Gsync chuyên game", category: "LCD", originalPrice: 4190000, salePrice: 2790000, discount: 33, quantity: "KGH"},
+            {name: "Bàn phím cơ DareU EK75 Full White Dream switch", category: "Peri", originalPrice: 699000, salePrice: 450000, discount: 36, quantity: 50},
+            {name: "Màn hình Viewsonic VA2732A-H 27\" IPS 120Hz viền mỏng", category: "LCD", originalPrice: 3590000, salePrice: 2390000, discount: 33, quantity: "KGH"},
+            {name: "Màn hình AOC Q27G40E 27\" Fast IPS 2K 180Hz chuyên game", category: "LCD", originalPrice: 5990000, salePrice: 3690000, discount: 38, quantity: "KGH"},
+            {name: "Màn hình E-DRA EGM24F120PV 24\" IPS 120Hz", category: "LCD", originalPrice: 2690000, salePrice: 1590000, discount: 41, quantity: "KGH"},
+            {name: "Màn hình LG 27G850A-B 27\" Nano IPS Black 4K 240Hz-FHD 480Hz chuyên game", category: "LCD", originalPrice: 23990000, salePrice: 15790000, discount: 34, quantity: "KGH"},
+            {name: "Màn hình LG 24GS65F-B 24\" IPS 180Hz HDR10 Gsync chuyên game", category: "LCD", originalPrice: 4390000, salePrice: 1990000, discount: 55, quantity: 20},
+            {name: "Màn hình LG 24GS65F-B 24\" IPS 180Hz HDR10 Gsync chuyên game", category: "LCD", originalPrice: 4390000, salePrice: 2790000, discount: 36, quantity: "KGH"},
+            {name: "Màn hình E-DRA EGM24F100PV 24\" IPS 100Hz", category: "LCD", originalPrice: 2490000, salePrice: 990000, discount: 60, quantity: 20},
+            {name: "Màn hình E-DRA EGM24F100PV 24\" IPS 100Hz", category: "LCD", originalPrice: 2490000, salePrice: 1390000, discount: 44, quantity: "KGH"},
+            {name: "Tai nghe Onikuma In-ear T301 TWS Bluetooth Trắng", category: "Peri", originalPrice: 740000, salePrice: 390000, discount: 47, quantity: 12},
+            {name: "Webcam Logitech Brio 500 Pink", category: "Peri", originalPrice: 2750000, salePrice: 1990000, discount: 28, quantity: 2},
+            {name: "Chuột Razer Deathadder Essential White", category: "Peri", originalPrice: 790000, salePrice: 300000, discount: 62, quantity: 5},
+            {name: "Màn hình ASUS VA27AQ 27\" IPS 2K 75Hz viền mỏng", category: "LCD", originalPrice: 4490000, salePrice: 3090000, discount: 31, quantity: "KGH"},
+            {name: "Màn hình Acer KG240Y-X1 24\" IPS 200Hz Gsync chuyên game", category: "LCD", originalPrice: 3790000, salePrice: 2390000, discount: 37, quantity: "KGH"},
+            {name: "Màn hình LG 27UP850K-W 27\" IPS 4K HDR USBC Chuyên Đồ họa", category: "LCD", originalPrice: 10890000, salePrice: 7890000, discount: 28, quantity: "KGH"},
+            {name: "Chuột Corsair Katar Pro Wireless", category: "Peri", originalPrice: 1090000, salePrice: 590000, discount: 46, quantity: 30},
+            {name: "Màn hình Asus TUF GAMING VG259Q5A 25\" Fast IPS 200Hz Gsync chuyên game", category: "LCD", originalPrice: 3990000, salePrice: 2790000, discount: 30, quantity: "KGH"},
+            {name: "Chuột Razer DeathAdder Essential (RZ01-03850100-R3M1)", category: "Peri", originalPrice: 790000, salePrice: 300000, discount: 62, quantity: 10},
+            {name: "MB-MSI-MAG-X870-TOMAHAWK-WF-D5", category: "Mainboard", originalPrice: 10890000, salePrice: 8190000, discount: 25, quantity: "KGH"},
+            {name: "Màn hình ViewSonic VX2479-HD-PRO 24\" IPS 180Hz chuyên game", category: "LCD", originalPrice: 3390000, salePrice: 2390000, discount: 29, quantity: "KGH"},
+            {name: "Màn hình ASUS ProArt PA278CV 27\" IPS 2K 75Hz USBC chuyên đồ họa", category: "LCD", originalPrice: 10990000, salePrice: 7090000, discount: 35, quantity: 10},
+            {name: "Màn hình cong ASUS TUF GAMING VG34VQL3A 34\" 2K 180Hz HDR chuyên game", category: "LCD", originalPrice: 10990000, salePrice: 7890000, discount: 28, quantity: "KGH"},
+            {name: "Chuột Rapoo VT9 Air Gaming Không Dây Trắng Tím", category: "Peri", originalPrice: 1990000, salePrice: 750000, discount: 62, quantity: 26},
+            {name: "Màn hình ASUS VZ279HG 27\" IPS 120Hz viền mỏng", category: "LCD", originalPrice: 3790000, salePrice: 2690000, discount: 29, quantity: "KGH"},
+            {name: "Chuột DareU Không dây EM911X RGB Đen", category: "Peri", originalPrice: 699000, salePrice: 290000, discount: 59, quantity: 100},
+            {name: "Màn hình E-DRA EGM25F200H 25\" IPS 200Hz chuyên game", category: "LCD", originalPrice: 3390000, salePrice: 990000, discount: 71, quantity: 10},
+            {name: "Màn hình E-DRA EGM25F200H 25\" IPS 200Hz chuyên game", category: "LCD", originalPrice: 3390000, salePrice: 2090000, discount: 38, quantity: "KGH"},
+            {name: "BlackWidow V3 - Green Switch", category: "Peri", originalPrice: 2490000, salePrice: 1600000, discount: 36, quantity: 5},
+            {name: "Màn hình MSI MAG 255PXF 25\" Rapid IPS 300Hz Gsync chuyên game", category: "LCD", originalPrice: 5990000, salePrice: 4190000, discount: 30, quantity: "KGH"},
+            {name: "Màn hình Viewsonic VA2432-H-2 24\" IPS 100Hz viền mỏng", category: "LCD", originalPrice: 2590000, salePrice: 1790000, discount: 31, quantity: "KGH"},
+            {name: "Bàn di chuột Razer Sphex V3 Ultra Thin-Large", category: "Peri", originalPrice: 390000, salePrice: 300000, discount: 23, quantity: 10},
+            {name: "Màn hình LG 27U411A-B 27\" IPS 120Hz HDR10 siêu mỏng", category: "LCD", originalPrice: 3590000, salePrice: 2690000, discount: 25, quantity: "KGH"},
+            {name: "Màn hình Philips 27E2N1500L 27\" IPS 2K 75Hz", category: "LCD", originalPrice: 3590000, salePrice: 2550000, discount: 29, quantity: "KGH"},
+            {name: "Màn hình ASUS ProArt PA248QV 24\" IPS 75Hz 16:10 chuyên đồ họa", category: "LCD", originalPrice: 6290000, salePrice: 4690000, discount: 25, quantity: "KGH"},
+            {name: "Màn hình LG 24U631A-B 24\" IPS 2K 100Hz USBC", category: "LCD", originalPrice: 4990000, salePrice: 3690000, discount: 26, quantity: "KGH"},
+            {name: "Màn hình Philips 27M2N3500PF 27\" IPS 2K 260Hz chuyên game", category: "LCD", originalPrice: 5990000, salePrice: 4090000, discount: 32, quantity: 10},
+            {name: "Màn hình Asus ROG Strix XG32UCWMG 32\" WOLED 4K 240Hz-FHD 480Hz chuyên game", category: "LCD", originalPrice: 37990000, salePrice: 27690000, discount: 27, quantity: "KGH"},
+            {name: "Màn hình AOC 25B36X 25\" IPS 144Hz chuyên game", category: "LCD", originalPrice: 2790000, salePrice: 1950000, discount: 30, quantity: "KGH"},
+            {name: "Màn hình MSI MAG 274QF X24 27\" Rapid IPS 2K 240Hz chuyên game", category: "LCD", originalPrice: 6990000, salePrice: 4650000, discount: 33, quantity: "KGH"},
+            {name: "Màn hình ASUS VZ249HG 24\" IPS 120Hz viền mỏng", category: "LCD", originalPrice: 2990000, salePrice: 2090000, discount: 30, quantity: "KGH"},
+            {name: "Bàn phím cơ DareU EK75 Grey Black Dream switch", category: "Peri", originalPrice: 699000, salePrice: 450000, discount: 36, quantity: 50},
+            {name: "Màn hình LG 27UP600K-W 27\" IPS 4K HDR10", category: "LCD", originalPrice: 6890000, salePrice: 5290000, discount: 23, quantity: "KGH"},
+            {name: "Màn hình MSI PRO MP243L E14 24\" IPS 144Hz", category: "LCD", originalPrice: 2990000, salePrice: 2090000, discount: 30, quantity: "KGH"},
+            {name: "Màn hình ViewSonic VX2479A-HD-PRO 24\" IPS 240Hz 1ms chuyên game", category: "LCD", originalPrice: 4490000, salePrice: 2590000, discount: 42, quantity: "KGH"},
+            {name: "Màn hình GIGABYTE M27QA 27\" IPS 2K 180Hz chuyên game", category: "LCD", originalPrice: 6990000, salePrice: 4690000, discount: 33, quantity: "KGH"},
+            {name: "Chuột Razer Basilisk V3", category: "Peri", originalPrice: 1390000, salePrice: 800000, discount: 42, quantity: 5},
+            {name: "Màn hình AOC 27B36X 27\" IPS 144Hz chuyên game", category: "LCD", originalPrice: 3190000, salePrice: 2350000, discount: 26, quantity: "KGH"},
+            {name: "Tai nghe HP HYPERX Cloud Earbuds II Red", category: "Peri", originalPrice: 1090000, salePrice: 690000, discount: 37, quantity: 30},
+            {name: "Tai nghe HP HYPERX Cloud Earbuds II Black", category: "Peri", originalPrice: 1090000, salePrice: 690000, discount: 37, quantity: 30},
+            {name: "Màn hình ViewSonic VX2758A-2K-PRO-4 27\" IPS 2K 180Hz chuyên game", category: "LCD", originalPrice: 5990000, salePrice: 4290000, discount: 28, quantity: "KGH"},
+            {name: "SSD-SAM-990-PRO-M2-NVME-4TB", category: "SSD", originalPrice: 11990000, salePrice: 8990000, discount: 25, quantity: 3},
+            {name: "Màn hình ASUS TUF GAMING VG27AQM5A 27\" Fast IPS 2K 300Hz chuyên game", category: "LCD", originalPrice: 8490000, salePrice: 6390000, discount: 25, quantity: "KGH"},
+            {name: "Màn hình Asus ROG Strix XG27ACDMS 27\" QD-OLED 2K 280Hz Gsync chuyên game", category: "LCD", originalPrice: 19990000, salePrice: 14890000, discount: 26, quantity: "KGH"},
+            {name: "Màn hình GIGABYTE M27UP 27\" IPS 4K 160Hz-FHD 320Hz chuyên game", category: "LCD", originalPrice: 11990000, salePrice: 9090000, discount: 24, quantity: "KGH"},
+            {name: "Tai nghe Razer BlackShark V2 X", category: "Peri", originalPrice: 1990000, salePrice: 900000, discount: 55, quantity: 10},
+            {name: "VGA-GIG-RTX5090-AOR-M-ICE-32G", category: "Card màn hình", originalPrice: 110000000, salePrice: 90990000, discount: 17, quantity: "KGH"},
+            {name: "Màn hình Philips 27M2N3500UK 27\" IPS 2K 300Hz chuyên game", category: "LCD", originalPrice: 7590000, salePrice: 5590000, discount: 26, quantity: "KGH"},
+            {name: "MB-ASU-Z790-A-ROG-STRIX-GAM-WIFI-II-D5", category: "Mainboard", originalPrice: 14990000, salePrice: 8290000, discount: 45, quantity: "KGH"},
+            {name: "Màn hình Acer KG270-X1 27\" IPS 200Hz Gsync chuyên game", category: "LCD", originalPrice: 4190000, salePrice: 3100000, discount: 26, quantity: "KGH"},
+            {name: "Màn hình ASUS TUF GAMING VG27AQ5A 27\" Fast IPS 2K 210Hz chuyên game", category: "LCD", originalPrice: 5990000, salePrice: 4590000, discount: 23, quantity: "KGH"},
+            {name: "Màn hình AOC Q27G42ZE 27\" Fast IPS 2K 260Hz chuyên game", category: "LCD", originalPrice: 5990000, salePrice: 4290000, discount: 28, quantity: "KGH"},
+            {name: "Màn hình Acer VG271U M3 27\" IPS 2K 180Hz chuyên game", category: "LCD", originalPrice: 5490000, salePrice: 3790000, discount: 31, quantity: "KGH"},
+            {name: "VGA-GIG-RX7600-GAME-O8G", category: "Card màn hình", originalPrice: 8490000, salePrice: 6690000, discount: 21, quantity: 1},
+            {name: "Màn hình E-DRA EGM22F100H 22\" IPS 100Hz", category: "LCD", originalPrice: 1890000, salePrice: 1290000, discount: 32, quantity: "KGH"},
+            {name: "Màn hình cong GIGABYTE G34WQC2 34\" 2K 200Hz chuyên game", category: "LCD", originalPrice: 8990000, salePrice: 7290000, discount: 19, quantity: "KGH"},
+            {name: "Màn hình MSI MAG 274F 27\" Rapid IPS 200Hz chuyên game", category: "LCD", originalPrice: 3990000, salePrice: 2890000, discount: 28, quantity: "KGH"},
+            {name: "Màn hình MSI MAG 245F X24 24\" Rapid IPS 240Hz chuyên game", category: "LCD", originalPrice: 3990000, salePrice: 2790000, discount: 30, quantity: "KGH"},
+            {name: "MB-GIG-B860M-K-D5", category: "Mainboard", originalPrice: 3990000, salePrice: 2890000, discount: 28, quantity: "KGH"},
+            {name: "Màn hình cong ViewSonic VX3418C-2K 34\" 2K 180Hz chuyên game", category: "LCD", originalPrice: 8900000, salePrice: 7090000, discount: 20, quantity: "KGH"},
+            {name: "Màn hình Philips 27M3N3540Q 27\" IPS 2K 210Hz chuyên game", category: "LCD", originalPrice: 4990000, salePrice: 3690000, discount: 26, quantity: 10},
+            {name: "Màn hình MSI MAG 255XF 25\" Rapid IPS 300Hz FreeSync Premium chuyên game", category: "LCD", originalPrice: 4990000, salePrice: 3900000, discount: 22, quantity: "KGH"},
+            {name: "Màn hình Philips 27M2N3500PA 27\" IPS 2K 260Hz chuyên game", category: "LCD", originalPrice: 5990000, salePrice: 4490000, discount: 25, quantity: "KGH"},
+            {name: "MB-MSI-Z790-GAM-PLU-WF-D5", category: "Mainboard", originalPrice: 6990000, salePrice: 5190000, discount: 26, quantity: "KGH"},
+            {name: "MB-MSI-PRO-H610M-S-WF-D4", category: "Mainboard", originalPrice: 2990000, salePrice: 1990000, discount: 33, quantity: "KGH"},
+            {name: "MB-GIG-H610M-H-V3-D4", category: "Mainboard", originalPrice: 1990000, salePrice: 1650000, discount: 17, quantity: "KGH"},
+            {name: "Màn hình AOC 24G11ZE 24\" Fast IPS 240Hz chuyên game", category: "LCD", originalPrice: 3190000, salePrice: 2550000, discount: 20, quantity: "KGH"},
+            {name: "Màn hình AOC U27G4 27\" Fast IPS 4K 160Hz-FHD 320Hz chuyên game", category: "LCD", originalPrice: 7990000, salePrice: 6590000, discount: 18, quantity: "KGH"},
+            {name: "VGA-GIG-RTX4080S-AOR-XTRE-ICE-16G", category: "Card màn hình", originalPrice: 59990000, salePrice: 35000000, discount: 42, quantity: 1},
+            {name: "MB-GIG-B760M-GAM-PLUS-WF-D4", category: "Mainboard", originalPrice: 3590000, salePrice: 2890000, discount: 19, quantity: "KGH"},
+            {name: "VGA-ZOT-RTX5060TI-TWIN-EDGE-OC-8GB", category: "Card màn hình", originalPrice: 14990000, salePrice: 12290000, discount: 18, quantity: 30},
+            {name: "Màn hình ViewSonic VA2708-2K-MHD 27\" IPS 2K 100Hz", category: "LCD", originalPrice: 4190000, salePrice: 3390000, discount: 19, quantity: "KGH"},
+            {name: "Màn hình ASUS ProArt PA248QFV 24\" IPS 100Hz 16:10 chuyên đồ họa", category: "LCD", originalPrice: 5990000, salePrice: 4890000, discount: 18, quantity: "KGH"},
+            {name: "Màn hình LG 24U411A-B 24\" IPS 120Hz HDR10 siêu mỏng", category: "LCD", originalPrice: 2590000, salePrice: 2250000, discount: 13, quantity: "KGH"},
+            {name: "VGA-ASU-RTX5050-DUAL-8GB", category: "Card màn hình", originalPrice: 8290000, salePrice: 6990000, discount: 16, quantity: "KGH"},
+            {name: "VGA-MSI-RTX5090-GAM-TRIO-OC-32G", category: "Card màn hình", originalPrice: 97990000, salePrice: 79990000, discount: 18, quantity: "KGH"},
+            {name: "VGA-MSI-RTX5070-GAM-TRIO-OC-WHI-12G", category: "Card màn hình", originalPrice: 23490000, salePrice: 20990000, discount: 11, quantity: "KGH"},
+            {name: "VGA-MSI-RTX5060TI-SHADOW-2X-OC-PLUS-16GB", category: "Card màn hình", originalPrice: 14990000, salePrice: 12990000, discount: 13, quantity: "KGH"},
+            {name: "VGA-GIG-RTX5090-AOR-M-ICE-32G", category: "Card màn hình", originalPrice: 110000000, salePrice: 89000000, discount: 19, quantity: 1},
+            {name: "Màn hình E-DRA EGM27Q200 27\" IPS 2K 200Hz chuyên game", category: "LCD", originalPrice: 3990000, salePrice: 3090000, discount: 23, quantity: "KGH"},
+            {name: "VGA-MSI-RTX5070TI-SHADOW-3X-OC-16GB", category: "Card màn hình", originalPrice: 27990000, salePrice: 23990000, discount: 14, quantity: "KGH"},
+            {name: "Màn hình AOC 25G4K 25\" Fast IPS 420Hz chuyên game", category: "LCD", originalPrice: 7490000, salePrice: 5850000, discount: 22, quantity: "KGH"},
+            {name: "CPU-INT-I5-13400 (GIảm còn 4.990k khi mua cùng 1 main H7/B7 bất kỳ)", category: "CPU", originalPrice: 5890000, salePrice: 4990000, discount: 15, quantity: 50},
+            {name: "VGA-MSI-RTX5060-VENTUS-2X-OC-8GB", category: "Card màn hình", originalPrice: 10490000, salePrice: 8880000, discount: 15, quantity: "KGH"},
+            {name: "VGA-ASU-RX9070-XT-RADE-PRIME-O16G", category: "Card màn hình", originalPrice: 24990000, salePrice: 21590000, discount: 14, quantity: 1},
+            {name: "MB-ASU-B760M-TUF-GAM-PLUS-WF-D4", category: "Mainboard", originalPrice: 4890000, salePrice: 3690000, discount: 25, quantity: "KGH"},
+            {name: "Màn hình AOC Q27G4ZD 27\" QD-OLED 2K 280Hz chuyên game", category: "LCD", originalPrice: 14990000, salePrice: 11990000, discount: 20, quantity: 2},
+            {name: "VGA-MSI-RTX5070-GAM-TRIO-OC-12G", category: "Card màn hình", originalPrice: 22490000, salePrice: 20990000, discount: 7, quantity: "KGH"},
+            {name: "VGA-ASU-RX9070-XT-RADE-PRIME-O16G", category: "Card màn hình", originalPrice: 24990000, salePrice: 21990000, discount: 12, quantity: "KGH"},
+            {name: "Màn hình AOC CS25G 25\" Fast IPS 310Hz Gsync chuyên game", category: "LCD", originalPrice: 5090000, salePrice: 4390000, discount: 14, quantity: "KGH"},
+            {name: "Màn hình ASUS ProArt PA278QGV 27\" IPS 2K 120Hz chuyên đồ họa", category: "LCD", originalPrice: 8990000, salePrice: 7690000, discount: 14, quantity: "KGH"},
+            {name: "VGA-GIG-RX9070-RADE-GAM-OC-16G", category: "Card màn hình", originalPrice: 22990000, salePrice: 18990000, discount: 17, quantity: 1},
+            {name: "VGA-ASU-RTX5090-ROG-AST-LC-GAM-O32G", category: "Card màn hình", originalPrice: 139000000, salePrice: 99990000, discount: 28, quantity: "KGH"},
+            {name: "VGA-GIG-RX9070-RADE-GAM-OC-16G", category: "Card màn hình", originalPrice: 22990000, salePrice: 18990000, discount: 17, quantity: "KGH"},
+            {name: "Laptop gaming Acer Nitro V ProPanel ANV15 52 59AA", category: "Laptop", originalPrice: 28990000, salePrice: 16990000, discount: 41, quantity: 3},
+            {name: "Chuột gaming MSI M99 Pro 20th", category: "Peri", originalPrice: 490000, salePrice: 49000, discount: 90, quantity: 40},
+            {name: "Balo ASUS AP4600 ASUS BACKPACK(90XB08L0-BBP020)", category: "Peri", originalPrice: 590000, salePrice: 99000, discount: 83, quantity: 35},
+            {name: "Balo MSI 17\" KM Laptop", category: "Peri", originalPrice: 490000, salePrice: 99000, discount: 80, quantity: 20},
+            {name: "túi MSI Sleeve Bag", category: "Peri", originalPrice: 299000, salePrice: 19000, discount: 94, quantity: 20},
+            {name: "Balo TUF Gaming VP4700 17\" KM", category: "Peri", originalPrice: 490000, salePrice: 149000, discount: 70, quantity: 10},
+            {name: "Tai nghe MSI H901 20Th", category: "Peri", originalPrice: 490000, salePrice: 49000, discount: 90, quantity: 5},
+            {name: "Bàn phím Acer PKR200", category: "Peri", originalPrice: 500000, salePrice: 49000, discount: 90, quantity: 3},
+            {name: "Laptop gaming MSI Stealth 16 AI Studio A1VHG 241VN", category: "Laptop", originalPrice: 78990000, salePrice: 43990000, discount: 44, quantity: 5},
+            {name: "Laptop gaming Acer Nitro Lite 16 NL16 71G 56WQ", category: "Laptop", originalPrice: 21990000, salePrice: 19490000, discount: 11, quantity: 5},
+            {name: "Laptop gaming Acer Aspire 7 A715 59G 73LB", category: "Laptop", originalPrice: 22990000, salePrice: 20490000, discount: 11, quantity: 5},
+            {name: "Laptop gaming Acer Nitro V ANV16 41 R7EN", category: "Laptop", originalPrice: 28790000, salePrice: 23990000, discount: 17, quantity: 5},
+            {name: "Laptop gaming Acer Nitro V ANV16 41 R36Y", category: "Laptop", originalPrice: 31990000, salePrice: 26990000, discount: 16, quantity: 5},
+            {name: "Laptop gaming Acer Nitro V ANV16 41 R4KD", category: "Laptop", originalPrice: 36990000, salePrice: 28990000, discount: 22, quantity: 5},
+            {name: "Laptop Acer Aspire Lite 14 AL14 71P 55P9", category: "Laptop", originalPrice: 15590000, salePrice: 13990000, discount: 10, quantity: 5},
+            {name: "Laptop Acer Swift 3 SF314 511 55QE", category: "Laptop", originalPrice: 18990000, salePrice: 10990000, discount: 42, quantity: 5},
+            {name: "Laptop Acer Aspire Lite AL15 72P 7232", category: "Laptop", originalPrice: 16990000, salePrice: 15290000, discount: 10, quantity: 5},
+            {name: "Laptop Acer Aspire Lite AL15 72P 581V", category: "Laptop", originalPrice: 15690000, salePrice: 13990000, discount: 11, quantity: 5},
+            {name: "Laptop gaming HP VICTUS 15 fb3115AX BX9C9PA", category: "Laptop", originalPrice: 27990000, salePrice: 21990000, discount: 21, quantity: 5},
+            {name: "Laptop gaming HP OMEN 16-am0180TX BX8Y6PA", category: "Laptop", originalPrice: 37890000, salePrice: 29990000, discount: 21, quantity: 5},
+            {name: "Laptop gaming HP OMEN 16-am0178TX BX8Y4PA", category: "Laptop", originalPrice: 40890000, salePrice: 32990000, discount: 19, quantity: 5},
+            {name: "Laptop MSI Venture 14 AI A1MG-005VN", category: "Laptop", originalPrice: 23990000, salePrice: 14990000, discount: 38, quantity: 2},
+            {name: "Laptop MSI Modern 14 F13MG 027VN", category: "Laptop", originalPrice: 16990000, salePrice: 9990000, discount: 41, quantity: 4},
+            {name: "Laptop MSI Modern 15 B12MO 625VN", category: "Laptop", originalPrice: 13990000, salePrice: 7990000, discount: 43, quantity: 1},
+            {name: "Giá đỡ Laptop 16in AA", category: "Peri", originalPrice: 149000, salePrice: 79000, discount: 47, quantity: 50}
+        ];
+
+        let filteredProducts = [...allProducts];
+
+        function renderProducts() {
+            const tbody = document.getElementById('productsBody');
+            tbody.innerHTML = '';
+
+            filteredProducts.forEach((product, index) => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-gray-50';
+
+                const discountClass = product.discount >= 70 ? 'bg-red-600 text-white' :
+                                     product.discount >= 50 ? 'bg-orange-100 text-orange-800' :
+                                     'bg-purple-100 text-purple-800';
+
+                const highlightClass = product.discount >= 70 ? 'bg-yellow-50' : '';
+
+                row.innerHTML = `
+                    <td class="px-4 py-3 ${highlightClass}">${index + 1}</td>
+                    <td class="px-4 py-3 font-medium ${highlightClass}">${product.name}</td>
+                    <td class="px-4 py-3 ${highlightClass}">${product.category}</td>
+                    <td class="px-4 py-3 text-right text-gray-500 line-through ${highlightClass}">${product.originalPrice.toLocaleString('vi-VN')}</td>
+                    <td class="px-4 py-3 text-right font-bold text-purple-600 ${highlightClass}">${product.salePrice.toLocaleString('vi-VN')}</td>
+                    <td class="px-4 py-3 text-center ${highlightClass}">
+                        <span class="${discountClass} px-2 py-1 rounded font-bold">${product.discount}%</span>
+                    </td>
+                    <td class="px-4 py-3 text-center ${highlightClass}">${product.quantity}</td>
+                `;
+
+                tbody.appendChild(row);
+            });
+
+            document.getElementById('productCount').textContent = filteredProducts.length;
+        }
+
+        function searchProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const category = document.getElementById('categoryFilter').value;
+
+            filteredProducts = allProducts.filter(product => {
+                const matchesSearch = product.name.toLowerCase().includes(searchTerm);
+                const matchesCategory = category === '' || product.category === category;
+                return matchesSearch && matchesCategory;
+            });
+
+            renderProducts();
+        }
+
+        function filterByCategory() {
+            searchProducts();
+        }
+
+        // Initial render
+        renderProducts();
+    </script>
+</body>
+</html>

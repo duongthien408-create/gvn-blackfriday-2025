@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layer 1 - Deal Sốc Nhất | BLACK FRIDAY GEARVN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .table-scroll {
+            overflow-x: auto;
+        }
+        @media print {
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-6">
+            <h1 class="text-4xl font-bold text-center mb-2">LAYER 1: DEAL SỐC NHẤT</h1>
+            <p class="text-center text-xl opacity-90">148 Deal Limited - Giảm Tới 98%</p>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="bg-white shadow-md sticky top-24 z-40 no-print">
+        <div class="container mx-auto px-4">
+            <ul class="flex flex-wrap justify-center gap-2 py-4">
+                <li><a href="index.html" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition">Tổng Quan</a></li>
+                <li><a href="layer1.html" class="px-6 py-2 bg-purple-600 text-white rounded-full font-semibold hover:bg-purple-700 transition">Layer 1 - Deal Sốc</a></li>
+                <li><a href="layer2.html" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition">Layer 2 - Giá Sốc</a></li>
+                <li><a href="guidelines.html" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition">Hướng Dẫn & Quy Định</a></li>
+                <li><a href="timeline.html" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition">Timeline</a></li>
+                <li><a href="livestream.html" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition">Livestream Bốc Thăm</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Overview Section -->
+        <section class="mb-8">
+            <div class="bg-gradient-to-r from-red-500 to-pink-500 rounded-xl shadow-2xl p-8 text-white">
+                <h2 class="text-3xl font-bold mb-6 text-center">📦 Tổng Quan Layer 1</h2>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="bg-white/20 backdrop-blur rounded-lg p-4 text-center">
+                        <div class="text-4xl font-bold">148</div>
+                        <div class="text-lg">Tổng Deal</div>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur rounded-lg p-4 text-center">
+                        <div class="text-4xl font-bold">98%</div>
+                        <div class="text-lg">Giảm Tối Đa</div>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur rounded-lg p-4 text-center">
+                        <div class="text-4xl font-bold">1</div>
+                        <div class="text-lg">SP/Khách</div>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur rounded-lg p-4 text-center">
+                        <div class="text-4xl font-bold">3</div>
+                        <div class="text-lg">Ngày</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Important Info -->
+        <section class="mb-8">
+            <div class="bg-yellow-50 border-l-4 border-yellow-500 rounded-lg p-6 shadow-lg">
+                <h3 class="text-2xl font-bold text-yellow-800 mb-4">⚠️ Lưu Ý Quan Trọng</h3>
+                <ul class="space-y-2 text-gray-700">
+                    <li class="flex items-start">
+                        <span class="text-yellow-600 mr-2">•</span>
+                        <span><strong>Cơ chế:</strong> Khách bốc thăm (xếp hàng) để được quyền mua</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-yellow-600 mr-2">•</span>
+                        <span><strong>Giới hạn:</strong> Mỗi khách mua tối đa <strong>1 sản phẩm</strong></span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-yellow-600 mr-2">•</span>
+                        <span><strong>Khuyến mãi:</strong> Tặng voucher cho đơn tiếp theo → tăng tần suất mua</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-yellow-600 mr-2">•</span>
+                        <span><strong>Cam kết:</strong> 100% khách xếp hàng hợp lệ (trong giới hạn số lượng) sẽ nhận được quyền mua</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Day Navigation Tabs -->
+        <div class="mb-6 no-print">
+            <div class="flex flex-wrap gap-4 justify-center">
+                <button onclick="showDay(1)" id="btn-day1" class="px-8 py-3 bg-red-600 text-white rounded-lg font-bold hover:bg-red-700 transition shadow-lg">
+                    Ngày 1 (28/11) - 70 Deal
+                </button>
+                <button onclick="showDay(2)" id="btn-day2" class="px-8 py-3 bg-gray-300 text-gray-700 rounded-lg font-bold hover:bg-gray-400 transition shadow-lg">
+                    Ngày 2 (29/11) - 48 Deal
+                </button>
+                <button onclick="showDay(3)" id="btn-day3" class="px-8 py-3 bg-gray-300 text-gray-700 rounded-lg font-bold hover:bg-gray-400 transition shadow-lg">
+                    Ngày 3 (30/11) - 30 Deal
+                </button>
+            </div>
+        </section>
+
+        <!-- Day 1 Products -->
+        <section id="day1" class="mb-12">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-3xl font-bold text-red-600 mb-6">🔥 Ngày 1 (28/11) - 70 Deal</h2>
+
+                <div class="table-scroll">
+                    <table class="w-full text-sm">
+                        <thead class="bg-red-100">
+                            <tr>
+                                <th class="px-4 py-3 text-left font-bold text-red-800">STT</th>
+                                <th class="px-4 py-3 text-left font-bold text-red-800">Sản Phẩm</th>
+                                <th class="px-4 py-3 text-left font-bold text-red-800">Ngành Hàng</th>
+                                <th class="px-4 py-3 text-right font-bold text-red-800">Giá Niêm Yết</th>
+                                <th class="px-4 py-3 text-right font-bold text-red-800">Giá KM</th>
+                                <th class="px-4 py-3 text-center font-bold text-red-800">% Giảm</th>
+                                <th class="px-4 py-3 text-center font-bold text-red-800">SL</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y">
+                            <tr class="hover:bg-gray-50 bg-yellow-50">
+                                <td class="px-4 py-3">1</td>
+                                <td class="px-4 py-3 font-medium">Giá treo màn hình máy tính North Bayou NB-F80-XV Xám Xanh</td>
+                                <td class="px-4 py-3">LCD</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">490,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">9,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-600 text-white px-2 py-1 rounded font-bold">98%</span></td>
+                                <td class="px-4 py-3 text-center">7</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 bg-yellow-50">
+                                <td class="px-4 py-3">2</td>
+                                <td class="px-4 py-3 font-medium">Tai nghe HP HyperX Cloud III Wireless Red</td>
+                                <td class="px-4 py-3">Peri</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">4,390,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">99,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-600 text-white px-2 py-1 rounded font-bold">98%</span></td>
+                                <td class="px-4 py-3 text-center">7</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 bg-yellow-50">
+                                <td class="px-4 py-3">3</td>
+                                <td class="px-4 py-3 font-medium">Phụ kiện Razer RIPSAW</td>
+                                <td class="px-4 py-3">Peri</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">4,490,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">90,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-600 text-white px-2 py-1 rounded font-bold">98%</span></td>
+                                <td class="px-4 py-3 text-center">1</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">4</td>
+                                <td class="px-4 py-3 font-medium">ROG Gaming Charger Dock</td>
+                                <td class="px-4 py-3">Peri</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">1,690,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">290,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">83%</span></td>
+                                <td class="px-4 py-3 text-center">3</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">5</td>
+                                <td class="px-4 py-3 font-medium">Tay cầm chơi game Razer Wolverine V2 Chroma White (Xbox Series X/S)</td>
+                                <td class="px-4 py-3">Peri</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">4,490,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">990,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">78%</span></td>
+                                <td class="px-4 py-3 text-center">1</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">6</td>
+                                <td class="px-4 py-3 font-medium">Máy lọc không khí Honeywell Air Touch V1</td>
+                                <td class="px-4 py-3">Peri</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">1,250,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">290,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">77%</span></td>
+                                <td class="px-4 py-3 text-center">3</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">7</td>
+                                <td class="px-4 py-3 font-medium">Màn hình ViewSonic VX2882-4KP 28" IPS 4K 150Hz HDR10 USBC</td>
+                                <td class="px-4 py-3">LCD</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">15,990,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">3,990,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">75%</span></td>
+                                <td class="px-4 py-3 text-center">1</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">8</td>
+                                <td class="px-4 py-3 font-medium">Màn hình Acer KG240Y-X1 24" IPS 200Hz Gsync chuyên game</td>
+                                <td class="px-4 py-3">LCD</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">3,790,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">990,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">74%</span></td>
+                                <td class="px-4 py-3 text-center">8</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">9</td>
+                                <td class="px-4 py-3 font-medium">Màn hình Viewsonic VA2432A-H 24" IPS 120Hz viền mỏng</td>
+                                <td class="px-4 py-3">LCD</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">3,590,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">990,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">72%</span></td>
+                                <td class="px-4 py-3 text-center">10</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">10</td>
+                                <td class="px-4 py-3 font-medium">MB-GIG-X299X-AORUS-MAS</td>
+                                <td class="px-4 py-3">Mainboard</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">12,990,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">3,990,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">69%</span></td>
+                                <td class="px-4 py-3 text-center">1</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">11</td>
+                                <td class="px-4 py-3 font-medium">Màn hình ASUS ProArt PA248QV 24" IPS 75Hz 16:10 chuyên đồ họa</td>
+                                <td class="px-4 py-3">LCD</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">6,290,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">1,990,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">68%</span></td>
+                                <td class="px-4 py-3 text-center">1</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">12</td>
+                                <td class="px-4 py-3 font-medium">RAM-GSK-TRIDENTZ-RGB-1X16GB-5600-BLK-DDR5</td>
+                                <td class="px-4 py-3">RAM</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">5,995,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">1,990,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">67%</span></td>
+                                <td class="px-4 py-3 text-center">1</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">13</td>
+                                <td class="px-4 py-3 font-medium">Màn hình ASUS VZ249HG 24" IPS 120Hz viền mỏng</td>
+                                <td class="px-4 py-3">LCD</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">2,990,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">990,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">67%</span></td>
+                                <td class="px-4 py-3 text-center">3</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">14</td>
+                                <td class="px-4 py-3 font-medium">Ghế Ergonomic Warrior Hero series WEC509 Black/Red</td>
+                                <td class="px-4 py-3">Peri</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">4,390,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">1,490,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">66%</span></td>
+                                <td class="px-4 py-3 text-center">2</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">15</td>
+                                <td class="px-4 py-3 font-medium">RAM-GSK-TRIDENTZ-RGB-1X16GB-5600-BLK-DDR5-CL30</td>
+                                <td class="px-4 py-3">RAM</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">5,590,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">1,990,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">64%</span></td>
+                                <td class="px-4 py-3 text-center">1</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">16</td>
+                                <td class="px-4 py-3 font-medium">Chuột Logitech G502 Hero Gaming</td>
+                                <td class="px-4 py-3">Peri</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">1,090,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">390,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">64%</span></td>
+                                <td class="px-4 py-3 text-center">8</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">17</td>
+                                <td class="px-4 py-3 font-medium">Màn hình MSI MAG 244F 24" Rapid IPS 200Hz chuyên game</td>
+                                <td class="px-4 py-3">LCD</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">3,990,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">1,490,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">63%</span></td>
+                                <td class="px-4 py-3 text-center">5</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">18</td>
+                                <td class="px-4 py-3 font-medium">Bàn phím Leobog Hi86 TM (Trắng đen/ Nimbus V3 switch) HI8602</td>
+                                <td class="px-4 py-3">Peri</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">2,600,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">990,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">62%</span></td>
+                                <td class="px-4 py-3 text-center">1</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">19</td>
+                                <td class="px-4 py-3 font-medium">RAM-KING-FURY-BEAST-RGB-32GB-6000-DDR5</td>
+                                <td class="px-4 py-3">RAM</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">2,990,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">1,290,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">57%</span></td>
+                                <td class="px-4 py-3 text-center">1</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">20</td>
+                                <td class="px-4 py-3 font-medium">RAM-KING-FURY-1X16-3600-RGB-HX436C18FB4AK2-32</td>
+                                <td class="px-4 py-3">RAM</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">2,990,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">1,290,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">57%</span></td>
+                                <td class="px-4 py-3 text-center">1</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">21</td>
+                                <td class="px-4 py-3 font-medium">RAM-TEAM-DELTA-1x8G-3600-RGB-BLACK</td>
+                                <td class="px-4 py-3">RAM</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">2,190,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">990,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">55%</span></td>
+                                <td class="px-4 py-3 text-center">1</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">22</td>
+                                <td class="px-4 py-3 font-medium">RAM-TEAM-DELTA-1x8G-3600-RGB-WHITE</td>
+                                <td class="px-4 py-3">RAM</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">2,190,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">990,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">55%</span></td>
+                                <td class="px-4 py-3 text-center">1</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">23</td>
+                                <td class="px-4 py-3 font-medium">Màn hình Gaming AOPEN Fire Legend 25XV2Q F 390Hz</td>
+                                <td class="px-4 py-3">Laptop</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">8,390,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">1,990,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">76%</span></td>
+                                <td class="px-4 py-3 text-center">1</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">24</td>
+                                <td class="px-4 py-3 font-medium">Laptop MSI Modern 14 F1MG-432VN</td>
+                                <td class="px-4 py-3">Laptop</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">17,290,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-red-600">5,990,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">65%</span></td>
+                                <td class="px-4 py-3 text-center">1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-4 text-center text-gray-600">
+                    <p class="text-lg font-semibold">Tổng: 70 deal ngày 1</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 2 Products (Hidden by default) -->
+        <section id="day2" class="mb-12 hidden">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-3xl font-bold text-orange-600 mb-6">🔥 Ngày 2 (29/11) - 48 Deal</h2>
+
+                <div class="table-scroll">
+                    <table class="w-full text-sm">
+                        <thead class="bg-orange-100">
+                            <tr>
+                                <th class="px-4 py-3 text-left font-bold text-orange-800">STT</th>
+                                <th class="px-4 py-3 text-left font-bold text-orange-800">Sản Phẩm</th>
+                                <th class="px-4 py-3 text-left font-bold text-orange-800">Ngành Hàng</th>
+                                <th class="px-4 py-3 text-right font-bold text-orange-800">Giá Niêm Yết</th>
+                                <th class="px-4 py-3 text-right font-bold text-orange-800">Giá KM</th>
+                                <th class="px-4 py-3 text-center font-bold text-orange-800">% Giảm</th>
+                                <th class="px-4 py-3 text-center font-bold text-orange-800">SL</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y">
+                            <tr class="hover:bg-gray-50 bg-yellow-50">
+                                <td class="px-4 py-3">1</td>
+                                <td class="px-4 py-3 font-medium">Giá treo màn hình máy tính North Bayou NB-F80-XV Xám Xanh</td>
+                                <td class="px-4 py-3">LCD</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">490,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-orange-600">9,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-600 text-white px-2 py-1 rounded font-bold">98%</span></td>
+                                <td class="px-4 py-3 text-center">7</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 bg-yellow-50">
+                                <td class="px-4 py-3">2</td>
+                                <td class="px-4 py-3 font-medium">Tai nghe HP HyperX Cloud III Wireless Red</td>
+                                <td class="px-4 py-3">Peri</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">4,390,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-orange-600">99,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-600 text-white px-2 py-1 rounded font-bold">98%</span></td>
+                                <td class="px-4 py-3 text-center">5</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">3</td>
+                                <td class="px-4 py-3 font-medium">ROG Gaming Charger Dock</td>
+                                <td class="px-4 py-3">Peri</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">1,690,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-orange-600">290,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-orange-100 text-orange-800 px-2 py-1 rounded font-bold">83%</span></td>
+                                <td class="px-4 py-3 text-center">3</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">4</td>
+                                <td class="px-4 py-3 font-medium">Máy lọc không khí Honeywell Air Touch V1</td>
+                                <td class="px-4 py-3">Peri</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">1,250,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-orange-600">290,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-orange-100 text-orange-800 px-2 py-1 rounded font-bold">77%</span></td>
+                                <td class="px-4 py-3 text-center">3</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">5</td>
+                                <td class="px-4 py-3 font-medium">Màn hình ViewSonic VX2882-4KP 28" IPS 4K 150Hz HDR10 USBC</td>
+                                <td class="px-4 py-3">LCD</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">15,990,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-orange-600">3,990,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-orange-100 text-orange-800 px-2 py-1 rounded font-bold">75%</span></td>
+                                <td class="px-4 py-3 text-center">1</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">6</td>
+                                <td class="px-4 py-3 font-medium">Màn hình Viewsonic VA2432A-H 24" IPS 120Hz viền mỏng</td>
+                                <td class="px-4 py-3">LCD</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">3,590,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-orange-600">990,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-orange-100 text-orange-800 px-2 py-1 rounded font-bold">72%</span></td>
+                                <td class="px-4 py-3 text-center">8</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">7</td>
+                                <td class="px-4 py-3 font-medium">Màn hình Acer KG240Y-X1 24" IPS 200Hz Gsync chuyên game</td>
+                                <td class="px-4 py-3">LCD</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">3,790,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-orange-600">990,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-orange-100 text-orange-800 px-2 py-1 rounded font-bold">74%</span></td>
+                                <td class="px-4 py-3 text-center">5</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">8</td>
+                                <td class="px-4 py-3 font-medium">Màn hình ASUS ProArt PA248QV 24" IPS 75Hz 16:10 chuyên đồ họa</td>
+                                <td class="px-4 py-3">LCD</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">6,290,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-orange-600">1,990,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-orange-100 text-orange-800 px-2 py-1 rounded font-bold">68%</span></td>
+                                <td class="px-4 py-3 text-center">1</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">9</td>
+                                <td class="px-4 py-3 font-medium">Màn hình ASUS VZ249HG 24" IPS 120Hz viền mỏng</td>
+                                <td class="px-4 py-3">LCD</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">2,990,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-orange-600">990,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-orange-100 text-orange-800 px-2 py-1 rounded font-bold">67%</span></td>
+                                <td class="px-4 py-3 text-center">3</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">10</td>
+                                <td class="px-4 py-3 font-medium">Ghế Ergonomic Warrior Hero series WEC509 Black/Red</td>
+                                <td class="px-4 py-3">Peri</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">4,390,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-orange-600">1,490,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-orange-100 text-orange-800 px-2 py-1 rounded font-bold">66%</span></td>
+                                <td class="px-4 py-3 text-center">2</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">11</td>
+                                <td class="px-4 py-3 font-medium">Chuột Logitech G502 Hero Gaming</td>
+                                <td class="px-4 py-3">Peri</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">1,090,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-orange-600">390,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-orange-100 text-orange-800 px-2 py-1 rounded font-bold">64%</span></td>
+                                <td class="px-4 py-3 text-center">5</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">12</td>
+                                <td class="px-4 py-3 font-medium">Màn hình MSI MAG 244F 24" Rapid IPS 200Hz chuyên game</td>
+                                <td class="px-4 py-3">LCD</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">3,990,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-orange-600">1,490,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-orange-100 text-orange-800 px-2 py-1 rounded font-bold">63%</span></td>
+                                <td class="px-4 py-3 text-center">2</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">13</td>
+                                <td class="px-4 py-3 font-medium">Bàn phím Leobog Hi86 TM (Trắng đen/ Nimbus V3 switch) HI8602</td>
+                                <td class="px-4 py-3">Peri</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">2,600,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-orange-600">990,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-orange-100 text-orange-800 px-2 py-1 rounded font-bold">62%</span></td>
+                                <td class="px-4 py-3 text-center">1</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">14</td>
+                                <td class="px-4 py-3 font-medium">RAM-KING-FURY-BEAST-RGB-32GB-6000-DDR5</td>
+                                <td class="px-4 py-3">RAM</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">2,990,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-orange-600">1,290,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-orange-100 text-orange-800 px-2 py-1 rounded font-bold">57%</span></td>
+                                <td class="px-4 py-3 text-center">1</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">15</td>
+                                <td class="px-4 py-3 font-medium">Laptop MSI Modern 14 F1MG-432VN</td>
+                                <td class="px-4 py-3">Laptop</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">17,290,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-orange-600">5,990,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-orange-100 text-orange-800 px-2 py-1 rounded font-bold">65%</span></td>
+                                <td class="px-4 py-3 text-center">1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-4 text-center text-gray-600">
+                    <p class="text-lg font-semibold">Tổng: 48 deal ngày 2</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 3 Products (Hidden by default) -->
+        <section id="day3" class="mb-12 hidden">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-3xl font-bold text-purple-600 mb-6">🔥 Ngày 3 (30/11) - 30 Deal</h2>
+
+                <div class="table-scroll">
+                    <table class="w-full text-sm">
+                        <thead class="bg-purple-100">
+                            <tr>
+                                <th class="px-4 py-3 text-left font-bold text-purple-800">STT</th>
+                                <th class="px-4 py-3 text-left font-bold text-purple-800">Sản Phẩm</th>
+                                <th class="px-4 py-3 text-left font-bold text-purple-800">Ngành Hàng</th>
+                                <th class="px-4 py-3 text-right font-bold text-purple-800">Giá Niêm Yết</th>
+                                <th class="px-4 py-3 text-right font-bold text-purple-800">Giá KM</th>
+                                <th class="px-4 py-3 text-center font-bold text-purple-800">% Giảm</th>
+                                <th class="px-4 py-3 text-center font-bold text-purple-800">SL</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y">
+                            <tr class="hover:bg-gray-50 bg-yellow-50">
+                                <td class="px-4 py-3">1</td>
+                                <td class="px-4 py-3 font-medium">Giá treo màn hình máy tính North Bayou NB-F80-XV Xám Xanh</td>
+                                <td class="px-4 py-3">LCD</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">490,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-purple-600">9,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-600 text-white px-2 py-1 rounded font-bold">98%</span></td>
+                                <td class="px-4 py-3 text-center">7</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 bg-yellow-50">
+                                <td class="px-4 py-3">2</td>
+                                <td class="px-4 py-3 font-medium">Tai nghe HP HyperX Cloud III Wireless Red</td>
+                                <td class="px-4 py-3">Peri</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">4,390,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-purple-600">99,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-red-600 text-white px-2 py-1 rounded font-bold">98%</span></td>
+                                <td class="px-4 py-3 text-center">3</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">3</td>
+                                <td class="px-4 py-3 font-medium">ROG Gaming Charger Dock</td>
+                                <td class="px-4 py-3">Peri</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">1,690,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-purple-600">290,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-purple-100 text-purple-800 px-2 py-1 rounded font-bold">83%</span></td>
+                                <td class="px-4 py-3 text-center">3</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">4</td>
+                                <td class="px-4 py-3 font-medium">Máy lọc không khí Honeywell Air Touch V1</td>
+                                <td class="px-4 py-3">Peri</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">1,250,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-purple-600">290,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-purple-100 text-purple-800 px-2 py-1 rounded font-bold">77%</span></td>
+                                <td class="px-4 py-3 text-center">3</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">5</td>
+                                <td class="px-4 py-3 font-medium">Màn hình Viewsonic VA2432A-H 24" IPS 120Hz viền mỏng</td>
+                                <td class="px-4 py-3">LCD</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">3,590,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-purple-600">990,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-purple-100 text-purple-800 px-2 py-1 rounded font-bold">72%</span></td>
+                                <td class="px-4 py-3 text-center">3</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">6</td>
+                                <td class="px-4 py-3 font-medium">Màn hình ASUS VZ249HG 24" IPS 120Hz viền mỏng</td>
+                                <td class="px-4 py-3">LCD</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">2,990,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-purple-600">990,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-purple-100 text-purple-800 px-2 py-1 rounded font-bold">67%</span></td>
+                                <td class="px-4 py-3 text-center">3</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">7</td>
+                                <td class="px-4 py-3 font-medium">Ghế Ergonomic Warrior Hero series WEC509 Black/Red</td>
+                                <td class="px-4 py-3">Peri</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">4,390,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-purple-600">1,490,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-purple-100 text-purple-800 px-2 py-1 rounded font-bold">66%</span></td>
+                                <td class="px-4 py-3 text-center">2</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">8</td>
+                                <td class="px-4 py-3 font-medium">Chuột Logitech G502 Hero Gaming</td>
+                                <td class="px-4 py-3">Peri</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">1,090,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-purple-600">390,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-purple-100 text-purple-800 px-2 py-1 rounded font-bold">64%</span></td>
+                                <td class="px-4 py-3 text-center">2</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">9</td>
+                                <td class="px-4 py-3 font-medium">Màn hình MSI MAG 244F 24" Rapid IPS 200Hz chuyên game</td>
+                                <td class="px-4 py-3">LCD</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">3,990,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-purple-600">1,490,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-purple-100 text-purple-800 px-2 py-1 rounded font-bold">63%</span></td>
+                                <td class="px-4 py-3 text-center">2</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-4 py-3">10</td>
+                                <td class="px-4 py-3 font-medium">Màn hình Acer KG240Y-X1 24" IPS 200Hz Gsync chuyên game</td>
+                                <td class="px-4 py-3">LCD</td>
+                                <td class="px-4 py-3 text-right text-gray-500 line-through">3,790,000</td>
+                                <td class="px-4 py-3 text-right font-bold text-purple-600">990,000</td>
+                                <td class="px-4 py-3 text-center"><span class="bg-purple-100 text-purple-800 px-2 py-1 rounded font-bold">74%</span></td>
+                                <td class="px-4 py-3 text-center">2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-4 text-center text-gray-600">
+                    <p class="text-lg font-semibold">Tổng: 30 deal ngày 3</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Back Button -->
+        <div class="text-center no-print">
+            <a href="index.html" class="inline-block bg-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-700 transition">
+                ← Quay Lại Trang Chủ
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg font-semibold mb-2">BLACK FRIDAY 2025 - GEARVN</p>
+            <p class="opacity-75">Layer 1: Deal Sốc Nhất - 148 Deal (70+48+30)</p>
+        </div>
+    </footer>
+
+    <script>
+        function showDay(day) {
+            // Hide all sections
+            document.getElementById('day1').classList.add('hidden');
+            document.getElementById('day2').classList.add('hidden');
+            document.getElementById('day3').classList.add('hidden');
+
+            // Reset all buttons
+            document.getElementById('btn-day1').className = 'px-8 py-3 bg-gray-300 text-gray-700 rounded-lg font-bold hover:bg-gray-400 transition shadow-lg';
+            document.getElementById('btn-day2').className = 'px-8 py-3 bg-gray-300 text-gray-700 rounded-lg font-bold hover:bg-gray-400 transition shadow-lg';
+            document.getElementById('btn-day3').className = 'px-8 py-3 bg-gray-300 text-gray-700 rounded-lg font-bold hover:bg-gray-400 transition shadow-lg';
+
+            // Show selected section and highlight button
+            if (day === 1) {
+                document.getElementById('day1').classList.remove('hidden');
+                document.getElementById('btn-day1').className = 'px-8 py-3 bg-red-600 text-white rounded-lg font-bold hover:bg-red-700 transition shadow-lg';
+            } else if (day === 2) {
+                document.getElementById('day2').classList.remove('hidden');
+                document.getElementById('btn-day2').className = 'px-8 py-3 bg-orange-600 text-white rounded-lg font-bold hover:bg-orange-700 transition shadow-lg';
+            } else if (day === 3) {
+                document.getElementById('day3').classList.remove('hidden');
+                document.getElementById('btn-day3').className = 'px-8 py-3 bg-purple-600 text-white rounded-lg font-bold hover:bg-purple-700 transition shadow-lg';
+            }
+        }
+    </script>
+</body>
+</html>
