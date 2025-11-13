@@ -9,6 +9,12 @@
         .gradient-bg {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
+        .gradient-red {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+        .gradient-blue {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
         .table-scroll {
             overflow-x: auto;
         }
@@ -21,6 +27,32 @@
         .highlight-deal {
             background-color: #fef3c7;
             font-weight: bold;
+        }
+        .group-tab {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .group-tab:hover {
+            transform: scale(1.02);
+        }
+        .group-tab.active {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .badge-kgh {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-weight: bold;
+            font-size: 0.75rem;
+        }
+        .badge-limited {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-weight: bold;
+            font-size: 0.75rem;
         }
         @media print {
             .no-print { display: none; }
@@ -58,7 +90,7 @@
                 <h2 class="text-3xl font-bold mb-6 text-center">📦 Tổng Quan Layer 2</h2>
                 <div class="grid md:grid-cols-4 gap-6">
                     <div class="bg-white/20 backdrop-blur rounded-lg p-4 text-center">
-                        <div class="text-4xl font-bold" id="total-products">227</div>
+                        <div class="text-4xl font-bold">187</div>
                         <div class="text-lg">Tổng Deal</div>
                     </div>
                     <div class="bg-white/20 backdrop-blur rounded-lg p-4 text-center">
@@ -66,12 +98,47 @@
                         <div class="text-lg">Giảm Tối Đa</div>
                     </div>
                     <div class="bg-white/20 backdrop-blur rounded-lg p-4 text-center">
-                        <div class="text-4xl font-bold">13</div>
-                        <div class="text-lg">Ngành Hàng</div>
+                        <div class="text-4xl font-bold">105</div>
+                        <div class="text-lg">Có Giới Hạn</div>
                     </div>
                     <div class="bg-white/20 backdrop-blur rounded-lg p-4 text-center">
-                        <div class="text-4xl font-bold" id="highlight-count">67</div>
-                        <div class="text-lg">Deal >= 50%</div>
+                        <div class="text-4xl font-bold">82</div>
+                        <div class="text-lg">Không Giới Hạn</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Group Selection Tabs -->
+        <section class="mb-8 no-print">
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Group A: Limited -->
+                <div class="group-tab active gradient-red rounded-xl p-6 text-white" id="tab-limited" onclick="showGroup('limited')">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold">🔥 CÓ GIỚI HẠN SỐ LƯỢNG</h3>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-3xl font-bold" id="limited-count">105 Sản Phẩm</p>
+                        <p class="opacity-90">Số lượng có hạn - Mua nhanh kẻo hết!</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="bg-white/20 px-3 py-1 rounded-full text-sm">Deal >= 50%: <span id="limited-highlight">0</span></span>
+                            <span class="badge-limited">LIMITED STOCK</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group B: Unlimited (KGH) -->
+                <div class="group-tab gradient-blue rounded-xl p-6 text-white" id="tab-unlimited" onclick="showGroup('unlimited')">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold">♾️ KHÔNG GIỚI HẠN (KGH)</h3>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-3xl font-bold" id="unlimited-count">82 Sản Phẩm</p>
+                        <p class="opacity-90">Không giới hạn số lượng - An tâm mua sắm!</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="bg-white/20 px-3 py-1 rounded-full text-sm">Deal >= 50%: <span id="unlimited-highlight">0</span></span>
+                            <span class="badge-kgh">UNLIMITED</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -91,12 +158,12 @@
                         <span><strong>Highlight vàng:</strong> Đánh dấu deal giảm >= 50%</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-blue-600 mr-2">•</span>
-                        <span><strong>Ngành hàng:</strong> 13 danh mục sản phẩm (LCD, Peri, VGA, CPU, Laptop, v.v.)</span>
+                        <span class="text-red-600 mr-2">•</span>
+                        <span><strong>Nhóm CÓ GIỚI HẠN:</strong> Số lượng có hạn, nhanh tay kẻo lỡ!</span>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-blue-600 mr-2">•</span>
-                        <span><strong>Số lượng:</strong> Có hạn - theo từng sản phẩm</span>
+                        <span class="text-green-600 mr-2">•</span>
+                        <span><strong>Nhóm KHÔNG GIỚI HẠN (KGH):</strong> Số lượng không giới hạn, mua thoải mái!</span>
                     </li>
                 </ul>
             </div>
@@ -104,53 +171,31 @@
 
         <!-- Category Tabs -->
         <div class="mb-6 no-print">
-            <div class="flex flex-wrap gap-3 justify-center">
-                <button onclick="showCategory('all')" id="btn-all" class="tab-button px-6 py-3 bg-purple-600 text-white rounded-lg font-bold shadow-lg">
-                    Tất Cả (227)
-                </button>
-                <button onclick="showCategory('LCD')" id="btn-LCD" class="tab-button px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-bold shadow-lg">
-                    LCD (75)
-                </button>
-                <button onclick="showCategory('Peri')" id="btn-Peri" class="tab-button px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-bold shadow-lg">
-                    Peri (70)
-                </button>
-                <button onclick="showCategory('Card màn hình')" id="btn-vga" class="tab-button px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-bold shadow-lg">
-                    VGA (17)
-                </button>
-                <button onclick="showCategory('Laptop')" id="btn-Laptop" class="tab-button px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-bold shadow-lg">
-                    Laptop (25)
-                </button>
-                <button onclick="showCategory('Mainboard')" id="btn-Mainboard" class="tab-button px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-bold shadow-lg">
-                    Mainboard (10)
-                </button>
-                <button onclick="showCategory('SSD')" id="btn-SSD" class="tab-button px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-bold shadow-lg">
-                    SSD (1)
-                </button>
-                <button onclick="showCategory('Case')" id="btn-Case" class="tab-button px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-bold shadow-lg">
-                    Case (1)
-                </button>
-                <button onclick="showCategory('CPU')" id="btn-CPU" class="tab-button px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-bold shadow-lg">
-                    CPU (1)
-                </button>
+            <div class="flex flex-wrap gap-3 justify-center" id="category-tabs">
+                <!-- Category tabs will be inserted by JavaScript -->
             </div>
         </div>
 
         <!-- Products Table -->
         <section class="mb-12">
             <div class="bg-white rounded-xl shadow-lg p-6">
-                <h2 class="text-3xl font-bold text-purple-600 mb-6" id="category-title">🔥 Tất Cả Sản Phẩm Layer 2</h2>
+                <h2 class="text-3xl font-bold mb-6" id="section-title">
+                    <span id="section-icon">🔥</span>
+                    <span id="section-name">CÓ GIỚI HẠN SỐ LƯỢNG</span>
+                    <span id="category-subtitle" class="text-xl text-gray-600 ml-2"></span>
+                </h2>
 
                 <div class="table-scroll">
                     <table class="w-full text-sm">
-                        <thead class="bg-purple-100">
+                        <thead id="table-header">
                             <tr>
-                                <th class="px-4 py-3 text-left font-bold text-purple-800">STT</th>
-                                <th class="px-4 py-3 text-left font-bold text-purple-800">Sản Phẩm</th>
-                                <th class="px-4 py-3 text-left font-bold text-purple-800">Ngành Hàng</th>
-                                <th class="px-4 py-3 text-right font-bold text-purple-800">Giá NY</th>
-                                <th class="px-4 py-3 text-right font-bold text-purple-800">Giá KM</th>
-                                <th class="px-4 py-3 text-center font-bold text-purple-800">% Giảm</th>
-                                <th class="px-4 py-3 text-center font-bold text-purple-800">Số Lượng</th>
+                                <th class="px-4 py-3 text-left font-bold">STT</th>
+                                <th class="px-4 py-3 text-left font-bold">Sản Phẩm</th>
+                                <th class="px-4 py-3 text-left font-bold">Ngành Hàng</th>
+                                <th class="px-4 py-3 text-right font-bold">Giá NY</th>
+                                <th class="px-4 py-3 text-right font-bold">Giá KM</th>
+                                <th class="px-4 py-3 text-center font-bold">% Giảm</th>
+                                <th class="px-4 py-3 text-center font-bold">Số Lượng</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y" id="products-table">
@@ -160,7 +205,7 @@
                 </div>
 
                 <div class="mt-4 text-center text-gray-600">
-                    <p class="text-lg font-semibold" id="product-count">Tổng: 227 sản phẩm</p>
+                    <p class="text-lg font-semibold" id="product-count"></p>
                 </div>
             </div>
         </section>
@@ -177,13 +222,13 @@
     <footer class="gradient-bg text-white py-8 mt-12">
         <div class="container mx-auto px-4 text-center">
             <p class="text-lg font-semibold mb-2">BLACK FRIDAY 2025 - GEARVN</p>
-            <p class="opacity-75">Layer 2: Giá Sốc - 227 Deal</p>
+            <p class="opacity-75">Layer 2: Giá Sốc - 187 Deal (105 Có Giới Hạn + 82 Không Giới Hạn)</p>
         </div>
     </footer>
 
     <script>
-        // Product data
-        const products = [
+        // Product data from CSV (Layer 02 only)
+        const allProducts = [
             { name: "Thiết bị kết nối chuột không dây Pulsar 8K Dongle Black", category: "Peri", priceNY: "529,000", priceKM: "9,000", discount: 98, quantity: 9 },
             { name: "Củ Sạc Ugreen PD 20W Bl CD137 50799", category: "Peri", priceNY: "460,000", priceKM: "10,000", discount: 98, quantity: 6 },
             { name: "Lót chuột AKKO Mini Pad Corgi Butt", category: "Peri", priceNY: "179,000", priceKM: "10,000", discount: 94, quantity: 10 },
@@ -253,9 +298,9 @@
             { name: "Tai nghe Razer BlackShark V2 X", category: "Peri", priceNY: "1,990,000", priceKM: "900,000", discount: 55, quantity: 10 },
             { name: "Chuột gaming MSI M99 Pro 20th", category: "Laptop", priceNY: "490,000", priceKM: "49,000", discount: 90, quantity: 40 },
             { name: "Balo ASUS AP4600 ASUS BACKPACK(90XB08L0-BBP020)", category: "Laptop", priceNY: "590,000", priceKM: "99,000", discount: 83, quantity: 35 },
-            { name: "Balo MSI 17\" KM Laptop", category: "Laptop", priceNY: "490,000", priceKM: "99,000", discount: 80, quantity: 20 },
+            { name: 'Balo MSI 17" KM Laptop', category: "Laptop", priceNY: "490,000", priceKM: "99,000", discount: 80, quantity: 20 },
             { name: "túi MSI Sleeve Bag", category: "Laptop", priceNY: "299,000", priceKM: "19,000", discount: 94, quantity: 20 },
-            { name: "Balo TUF Gaming VP4700 17\" KM", category: "Laptop", priceNY: "490,000", priceKM: "149,000", discount: 70, quantity: 10 },
+            { name: 'Balo TUF Gaming VP4700 17" KM', category: "Laptop", priceNY: "490,000", priceKM: "149,000", discount: 70, quantity: 10 },
             { name: "Tai nghe MSI H901 20Th", category: "Laptop", priceNY: "490,000", priceKM: "49,000", discount: 90, quantity: 5 },
             { name: "Bàn phím Acer PKR200", category: "Laptop", priceNY: "500,000", priceKM: "49,000", discount: 90, quantity: 3 },
             { name: "Laptop gaming MSI Stealth 16 AI Studio A1VHG 241VN", category: "Laptop", priceNY: "78,990,000", priceKM: "43,990,000", discount: 44, quantity: 5 },
@@ -276,89 +321,89 @@
             { name: "Laptop MSI Modern 15 B12MO 625VN", category: "Laptop", priceNY: "13,990,000", priceKM: "7,990,000", discount: 43, quantity: 1 },
             { name: "Giá đỡ Laptop 16in AA", category: "Laptop", priceNY: "149,000", priceKM: "79,000", discount: 47, quantity: 50 },
             { name: "Laptop gaming Acer Nitro V ProPanel ANV15 52 59AA", category: "Laptop", priceNY: "28,990,000", priceKM: "16,990,000", discount: 41, quantity: 3 },
-            { name: "Màn hình ViewSonic VA2215-H 22\" 100Hz FHD", category: "LCD", priceNY: "3,600,000", priceKM: "1,490,000", discount: 59, quantity: "KGH" },
-            { name: "Màn hình LG 27GR93U-B UltraGear 27\" IPS 4K 144Hz Gsync chuyên game", category: "LCD", priceNY: "19,990,000", priceKM: "8,290,000", discount: 59, quantity: "KGH" },
-            { name: "Màn hình Asus ROG Strix XG27AQDMG 27\" WOLED 2K 240Hz HDR10 Gsync chuyên game", category: "LCD", priceNY: "29,990,000", priceKM: "14,490,000", discount: 52, quantity: "KGH" },
-            { name: "Màn hình ViewSonic VX2882-4KP 28\" IPS 4K 150Hz HDR10 USBC", category: "LCD", priceNY: "15,990,000", priceKM: "7,690,000", discount: 52, quantity: 10 },
-            { name: "Màn hình di động Asus ZenScreen MB169CK 16\" IPS FHD USBC", category: "LCD", priceNY: "4,990,000", priceKM: "2,590,000", discount: 48, quantity: "KGH" },
-            { name: "Màn hình Viewsonic VA2432A-H 24\" IPS 120Hz viền mỏng", category: "LCD", priceNY: "3,590,000", priceKM: "1,990,000", discount: 45, quantity: "KGH" },
-            { name: "Màn hình LG 27GS95QE-B UltraGear 27\" OLED 2K 240Hz G-Sync", category: "LCD", priceNY: "24,990,000", priceKM: "14,590,000", discount: 42, quantity: "KGH" },
-            { name: "Màn hình LG 45GS95QE-B UltraGear 45\" OLED 2K 240Hz G-Sync", category: "LCD", priceNY: "41,290,000", priceKM: "23,900,000", discount: 42, quantity: "KGH" },
-            { name: "Màn hình Asus TUF GAMING VG279QE5A-R 27\" IPS 146Hz chuyên game", category: "LCD", priceNY: "4,990,000", priceKM: "2,890,000", discount: 42, quantity: "KGH" },
-            { name: "Màn hình MSI MAG 273QP QD-OLED X24 27\" QD-OLED 2K 240Hz", category: "LCD", priceNY: "23,990,000", priceKM: "13,190,000", discount: 45, quantity: "KGH" },
-            { name: "Màn hình ViewSonic VX3276-2K-MHD-2 32\" IPS 2K 75Hz HDR10", category: "LCD", priceNY: "8,190,000", priceKM: "4,950,000", discount: 40, quantity: "KGH" },
-            { name: "Màn hình ViewSonic VX2779-HD-PRO 27\" IPS 180Hz chuyên game", category: "LCD", priceNY: "4,990,000", priceKM: "2,990,000", discount: 40, quantity: "KGH" },
-            { name: "Màn hình GIGABYTE MO27Q28G 27\" WOLED 2K 280Hz chuyên game", category: "LCD", priceNY: "24,990,000", priceKM: "14,990,000", discount: 40, quantity: "KGH" },
-            { name: "Màn hình ViewSonic VX2779A-HD-PRO 27\" IPS 240Hz 1ms chuyên game", category: "LCD", priceNY: "5,590,000", priceKM: "3,390,000", discount: 39, quantity: "KGH" },
-            { name: "Màn hình GIGABYTE G25F2 25\" IPS 200Hz chuyên game", category: "LCD", priceNY: "4,490,000", priceKM: "2,690,000", discount: 40, quantity: "KGH" },
-            { name: "Màn hình MSI MAG 244F 24\" Rapid IPS 200Hz chuyên game", category: "LCD", priceNY: "3,990,000", priceKM: "2,190,000", discount: 45, quantity: "KGH" },
-            { name: "Màn hình Asus TUF GAMING VG249QE5A-R 24\" IPS 146Hz chuyên game", category: "LCD", priceNY: "3,990,000", priceKM: "2,390,000", discount: 40, quantity: "KGH" },
-            { name: "Màn hình LG 27U631A-B 27\" IPS 2K 100Hz HDR10", category: "LCD", priceNY: "6,590,000", priceKM: "4,050,000", discount: 39, quantity: "KGH" },
-            { name: "Màn hình AOC Q27G11E 27\" IPS 2K 180Hz chuyên game", category: "LCD", priceNY: "5,990,000", priceKM: "3,790,000", discount: 37, quantity: "KGH" },
-            { name: "Màn hình ViewSonic VA3209-2K-MHD 32\" IPS 2K 75Hz HDR10", category: "LCD", priceNY: "6,690,000", priceKM: "4,290,000", discount: 36, quantity: "KGH" },
-            { name: "Màn hình E-DRA EGM27F120PV 27\" IPS 120Hz", category: "LCD", priceNY: "3,190,000", priceKM: "1,790,000", discount: 44, quantity: "KGH" },
-            { name: "Màn hình LG 24GS60F-B 24\" IPS 180Hz HDR10 Gsync chuyên game", category: "LCD", priceNY: "4,190,000", priceKM: "2,790,000", discount: 33, quantity: "KGH" },
-            { name: "Màn hình Viewsonic VA2732A-H 27\" IPS 120Hz viền mỏng", category: "LCD", priceNY: "3,590,000", priceKM: "2,390,000", discount: 33, quantity: "KGH" },
-            { name: "Màn hình AOC Q27G40E 27\" Fast IPS 2K 180Hz chuyên game", category: "LCD", priceNY: "5,990,000", priceKM: "3,690,000", discount: 38, quantity: "KGH" },
-            { name: "Màn hình E-DRA EGM24F120PV 24\" IPS 120Hz", category: "LCD", priceNY: "2,690,000", priceKM: "1,590,000", discount: 41, quantity: "KGH" },
-            { name: "Màn hình LG 27G850A-B 27\" Nano IPS Black 4K 240Hz-FHD 480Hz chuyên game", category: "LCD", priceNY: "23,990,000", priceKM: "15,790,000", discount: 34, quantity: "KGH" },
-            { name: "Màn hình LG 24GS65F-B 24\" IPS 180Hz HDR10 Gsync chuyên game", category: "LCD", priceNY: "4,390,000", priceKM: "1,990,000", discount: 55, quantity: 20 },
-            { name: "Màn hình LG 24GS65F-B 24\" IPS 180Hz HDR10 Gsync chuyên game", category: "LCD", priceNY: "4,390,000", priceKM: "2,790,000", discount: 36, quantity: "KGH" },
-            { name: "Màn hình E-DRA EGM24F100PV 24\" IPS 100Hz", category: "LCD", priceNY: "2,490,000", priceKM: "990,000", discount: 60, quantity: 20 },
-            { name: "Màn hình E-DRA EGM24F100PV 24\" IPS 100Hz", category: "LCD", priceNY: "2,490,000", priceKM: "1,390,000", discount: 44, quantity: "KGH" },
-            { name: "Màn hình ASUS VA27AQ 27\" IPS 2K 75Hz viền mỏng", category: "LCD", priceNY: "4,490,000", priceKM: "3,090,000", discount: 31, quantity: "KGH" },
-            { name: "Màn hình Acer KG240Y-X1 24\" IPS 200Hz Gsync chuyên game", category: "LCD", priceNY: "3,790,000", priceKM: "2,390,000", discount: 37, quantity: "KGH" },
-            { name: "Màn hình LG 27UP850K-W 27\" IPS 4K HDR USBC Chuyên Đồ họa", category: "LCD", priceNY: "10,890,000", priceKM: "7,890,000", discount: 28, quantity: "KGH" },
-            { name: "Màn hình Asus TUF GAMING VG259Q5A 25\" Fast IPS 200Hz Gsync chuyên game", category: "LCD", priceNY: "3,990,000", priceKM: "2,790,000", discount: 30, quantity: "KGH" },
-            { name: "Màn hình ViewSonic VX2479-HD-PRO 24\" IPS 180Hz chuyên game", category: "LCD", priceNY: "3,390,000", priceKM: "2,390,000", discount: 29, quantity: "KGH" },
-            { name: "Màn hình ASUS ProArt PA278CV 27\" IPS 2K 75Hz USBC chuyên đồ họa", category: "LCD", priceNY: "10,990,000", priceKM: "7,090,000", discount: 35, quantity: 10 },
-            { name: "Màn hình cong ASUS TUF GAMING VG34VQL3A 34\" 2K 180Hz HDR chuyên game", category: "LCD", priceNY: "10,990,000", priceKM: "7,890,000", discount: 28, quantity: "KGH" },
-            { name: "Màn hình ASUS VZ279HG 27\" IPS 120Hz viền mỏng", category: "LCD", priceNY: "3,790,000", priceKM: "2,690,000", discount: 29, quantity: "KGH" },
-            { name: "Màn hình E-DRA EGM25F200H 25\" IPS 200Hz chuyên game", category: "LCD", priceNY: "3,390,000", priceKM: "990,000", discount: 71, quantity: 10 },
-            { name: "Màn hình E-DRA EGM25F200H 25\" IPS 200Hz chuyên game", category: "LCD", priceNY: "3,390,000", priceKM: "2,090,000", discount: 38, quantity: "KGH" },
-            { name: "Màn hình MSI MAG 255PXF 25\" Rapid IPS 300Hz Gsync chuyên game", category: "LCD", priceNY: "5,990,000", priceKM: "4,190,000", discount: 30, quantity: "KGH" },
-            { name: "Màn hình Viewsonic VA2432-H-2 24\" IPS 100Hz viền mỏng", category: "LCD", priceNY: "2,590,000", priceKM: "1,790,000", discount: 31, quantity: "KGH" },
-            { name: "Màn hình LG 27U411A-B 27\" IPS 120Hz HDR10 siêu mỏng", category: "LCD", priceNY: "3,590,000", priceKM: "2,690,000", discount: 25, quantity: "KGH" },
-            { name: "Màn hình Philips 27E2N1500L 27\" IPS 2K 75Hz", category: "LCD", priceNY: "3,590,000", priceKM: "2,550,000", discount: 29, quantity: "KGH" },
-            { name: "Màn hình ASUS ProArt PA248QV 24\" IPS 75Hz 16:10 chuyên đồ họa", category: "LCD", priceNY: "6,290,000", priceKM: "4,690,000", discount: 25, quantity: "KGH" },
-            { name: "Màn hình LG 24U631A-B 24\" IPS 2K 100Hz USBC", category: "LCD", priceNY: "4,990,000", priceKM: "3,690,000", discount: 26, quantity: "KGH" },
-            { name: "Màn hình Philips 27M2N3500PF 27\" IPS 2K 260Hz chuyên game", category: "LCD", priceNY: "5,990,000", priceKM: "4,090,000", discount: 32, quantity: 10 },
-            { name: "Màn hình Asus ROG Strix XG32UCWMG 32\" WOLED 4K 240Hz-FHD 480Hz chuyên game", category: "LCD", priceNY: "37,990,000", priceKM: "27,690,000", discount: 27, quantity: "KGH" },
-            { name: "Màn hình AOC 25B36X 25\" IPS 144Hz chuyên game", category: "LCD", priceNY: "2,790,000", priceKM: "1,950,000", discount: 30, quantity: "KGH" },
-            { name: "Màn hình MSI MAG 274QF X24 27\" Rapid IPS 2K 240Hz chuyên game", category: "LCD", priceNY: "6,990,000", priceKM: "4,650,000", discount: 33, quantity: "KGH" },
-            { name: "Màn hình ASUS VZ249HG 24\" IPS 120Hz viền mỏng", category: "LCD", priceNY: "2,990,000", priceKM: "2,090,000", discount: 30, quantity: "KGH" },
-            { name: "Màn hình LG 27UP600K-W 27\" IPS 4K HDR10", category: "LCD", priceNY: "6,890,000", priceKM: "5,290,000", discount: 23, quantity: "KGH" },
-            { name: "Màn hình MSI PRO MP243L E14 24\" IPS 144Hz", category: "LCD", priceNY: "2,990,000", priceKM: "2,090,000", discount: 30, quantity: "KGH" },
-            { name: "Màn hình ViewSonic VX2479A-HD-PRO 24\" IPS 240Hz 1ms chuyên game", category: "LCD", priceNY: "4,490,000", priceKM: "2,590,000", discount: 42, quantity: "KGH" },
-            { name: "Màn hình GIGABYTE M27QA 27\" IPS 2K 180Hz chuyên game", category: "LCD", priceNY: "6,990,000", priceKM: "4,690,000", discount: 33, quantity: "KGH" },
-            { name: "Màn hình AOC 27B36X 27\" IPS 144Hz chuyên game", category: "LCD", priceNY: "3,190,000", priceKM: "2,350,000", discount: 26, quantity: "KGH" },
-            { name: "Màn hình ViewSonic VX2758A-2K-PRO-4 27\" IPS 2K 180Hz chuyên game", category: "LCD", priceNY: "5,990,000", priceKM: "4,290,000", discount: 28, quantity: "KGH" },
-            { name: "Màn hình ASUS TUF GAMING VG27AQM5A 27\" Fast IPS 2K 300Hz chuyên game", category: "LCD", priceNY: "8,490,000", priceKM: "6,390,000", discount: 25, quantity: "KGH" },
-            { name: "Màn hình Asus ROG Strix XG27ACDMS 27\" QD-OLED 2K 280Hz Gsync chuyên game", category: "LCD", priceNY: "19,990,000", priceKM: "14,890,000", discount: 26, quantity: "KGH" },
-            { name: "Màn hình GIGABYTE M27UP 27\" IPS 4K 160Hz-FHD 320Hz chuyên game", category: "LCD", priceNY: "11,990,000", priceKM: "9,090,000", discount: 24, quantity: "KGH" },
-            { name: "Màn hình Philips 27M2N3500UK 27\" IPS 2K 300Hz chuyên game", category: "LCD", priceNY: "7,590,000", priceKM: "5,590,000", discount: 26, quantity: "KGH" },
-            { name: "Màn hình Acer KG270-X1 27\" IPS 200Hz Gsync chuyên game", category: "LCD", priceNY: "4,190,000", priceKM: "3,100,000", discount: 26, quantity: "KGH" },
-            { name: "Màn hình ASUS TUF GAMING VG27AQ5A 27\" Fast IPS 2K 210Hz chuyên game", category: "LCD", priceNY: "5,990,000", priceKM: "4,590,000", discount: 23, quantity: "KGH" },
-            { name: "Màn hình AOC Q27G42ZE 27\" Fast IPS 2K 260Hz chuyên game", category: "LCD", priceNY: "5,990,000", priceKM: "4,290,000", discount: 28, quantity: "KGH" },
-            { name: "Màn hình Acer VG271U M3 27\" IPS 2K 180Hz chuyên game", category: "LCD", priceNY: "5,490,000", priceKM: "3,790,000", discount: 31, quantity: "KGH" },
-            { name: "Màn hình E-DRA EGM22F100H 22\" IPS 100Hz", category: "LCD", priceNY: "1,890,000", priceKM: "1,290,000", discount: 32, quantity: "KGH" },
-            { name: "Màn hình cong GIGABYTE G34WQC2 34\" 2K 200Hz chuyên game", category: "LCD", priceNY: "8,990,000", priceKM: "7,290,000", discount: 19, quantity: "KGH" },
-            { name: "Màn hình MSI MAG 274F 27\" Rapid IPS 200Hz chuyên game", category: "LCD", priceNY: "3,990,000", priceKM: "2,890,000", discount: 28, quantity: "KGH" },
-            { name: "Màn hình MSI MAG 245F X24 24\" Rapid IPS 240Hz chuyên game", category: "LCD", priceNY: "3,990,000", priceKM: "2,790,000", discount: 30, quantity: "KGH" },
-            { name: "Màn hình cong ViewSonic VX3418C-2K 34\" 2K 180Hz chuyên game", category: "LCD", priceNY: "8,900,000", priceKM: "7,090,000", discount: 20, quantity: "KGH" },
-            { name: "Màn hình Philips 27M3N3540Q 27\" IPS 2K 210Hz chuyên game", category: "LCD", priceNY: "4,990,000", priceKM: "3,690,000", discount: 26, quantity: 10 },
-            { name: "Màn hình MSI MAG 255XF 25\" Rapid IPS 300Hz FreeSync Premium chuyên game", category: "LCD", priceNY: "4,990,000", priceKM: "3,900,000", discount: 22, quantity: "KGH" },
-            { name: "Màn hình Philips 27M2N3500PA 27\" IPS 2K 260Hz chuyên game", category: "LCD", priceNY: "5,990,000", priceKM: "4,490,000", discount: 25, quantity: "KGH" },
-            { name: "Màn hình AOC 24G11ZE 24\" Fast IPS 240Hz chuyên game", category: "LCD", priceNY: "3,190,000", priceKM: "2,550,000", discount: 20, quantity: "KGH" },
-            { name: "Màn hình AOC U27G4 27\" Fast IPS 4K 160Hz-FHD 320Hz chuyên game", category: "LCD", priceNY: "7,990,000", priceKM: "6,590,000", discount: 18, quantity: "KGH" },
-            { name: "Màn hình ViewSonic VA2708-2K-MHD 27\" IPS 2K 100Hz", category: "LCD", priceNY: "4,190,000", priceKM: "3,390,000", discount: 19, quantity: "KGH" },
-            { name: "Màn hình ASUS ProArt PA248QFV 24\" IPS 100Hz 16:10 chuyên đồ họa", category: "LCD", priceNY: "5,990,000", priceKM: "4,890,000", discount: 18, quantity: "KGH" },
-            { name: "Màn hình LG 24U411A-B 24\" IPS 120Hz HDR10 siêu mỏng", category: "LCD", priceNY: "2,590,000", priceKM: "2,250,000", discount: 13, quantity: "KGH" },
-            { name: "Màn hình E-DRA EGM27Q200 27\" IPS 2K 200Hz chuyên game", category: "LCD", priceNY: "3,990,000", priceKM: "3,090,000", discount: 23, quantity: "KGH" },
-            { name: "Màn hình AOC 25G4K 25\" Fast IPS 420Hz chuyên game", category: "LCD", priceNY: "7,490,000", priceKM: "5,850,000", discount: 22, quantity: "KGH" },
-            { name: "Màn hình AOC Q27G4ZD 27\" QD-OLED 2K 280Hz chuyên game", category: "LCD", priceNY: "14,990,000", priceKM: "11,990,000", discount: 20, quantity: 2 },
-            { name: "Màn hình AOC CS25G 25\" Fast IPS 310Hz Gsync chuyên game", category: "LCD", priceNY: "5,090,000", priceKM: "4,390,000", discount: 14, quantity: "KGH" },
-            { name: "Màn hình ASUS ProArt PA278QGV 27\" IPS 2K 120Hz chuyên đồ họa", category: "LCD", priceNY: "8,990,000", priceKM: "7,690,000", discount: 14, quantity: "KGH" },
+            { name: 'Màn hình ViewSonic VA2215-H 22" 100Hz FHD', category: "LCD", priceNY: "3,600,000", priceKM: "1,490,000", discount: 59, quantity: "KGH" },
+            { name: 'Màn hình LG 27GR93U-B UltraGear 27" IPS 4K 144Hz Gsync chuyên game', category: "LCD", priceNY: "19,990,000", priceKM: "8,290,000", discount: 59, quantity: "KGH" },
+            { name: 'Màn hình Asus ROG Strix XG27AQDMG 27" WOLED 2K 240Hz HDR10 Gsync chuyên game', category: "LCD", priceNY: "29,990,000", priceKM: "14,490,000", discount: 52, quantity: "KGH" },
+            { name: 'Màn hình ViewSonic VX2882-4KP 28" IPS 4K 150Hz HDR10 USBC', category: "LCD", priceNY: "15,990,000", priceKM: "7,690,000", discount: 52, quantity: 10 },
+            { name: 'Màn hình di động Asus ZenScreen MB169CK 16" IPS FHD USBC', category: "LCD", priceNY: "4,990,000", priceKM: "2,590,000", discount: 48, quantity: "KGH" },
+            { name: 'Màn hình Viewsonic VA2432A-H 24" IPS 120Hz viền mỏng', category: "LCD", priceNY: "3,590,000", priceKM: "1,990,000", discount: 45, quantity: "KGH" },
+            { name: 'Màn hình LG 27GS95QE-B UltraGear 27" OLED 2K 240Hz G-Sync', category: "LCD", priceNY: "24,990,000", priceKM: "14,590,000", discount: 42, quantity: "KGH" },
+            { name: 'Màn hình LG 45GS95QE-B UltraGear 45" OLED 2K 240Hz G-Sync', category: "LCD", priceNY: "41,290,000", priceKM: "23,900,000", discount: 42, quantity: "KGH" },
+            { name: 'Màn hình Asus TUF GAMING VG279QE5A-R 27" IPS 146Hz chuyên game', category: "LCD", priceNY: "4,990,000", priceKM: "2,890,000", discount: 42, quantity: "KGH" },
+            { name: 'Màn hình MSI MAG 273QP QD-OLED X24 27" QD-OLED 2K 240Hz', category: "LCD", priceNY: "23,990,000", priceKM: "13,190,000", discount: 45, quantity: "KGH" },
+            { name: 'Màn hình ViewSonic VX3276-2K-MHD-2 32" IPS 2K 75Hz HDR10', category: "LCD", priceNY: "8,190,000", priceKM: "4,950,000", discount: 40, quantity: "KGH" },
+            { name: 'Màn hình ViewSonic VX2779-HD-PRO 27" IPS 180Hz chuyên game', category: "LCD", priceNY: "4,990,000", priceKM: "2,990,000", discount: 40, quantity: "KGH" },
+            { name: 'Màn hình GIGABYTE MO27Q28G 27" WOLED 2K 280Hz chuyên game', category: "LCD", priceNY: "24,990,000", priceKM: "14,990,000", discount: 40, quantity: "KGH" },
+            { name: 'Màn hình ViewSonic VX2779A-HD-PRO 27" IPS 240Hz 1ms chuyên game', category: "LCD", priceNY: "5,590,000", priceKM: "3,390,000", discount: 39, quantity: "KGH" },
+            { name: 'Màn hình GIGABYTE G25F2 25" IPS 200Hz chuyên game', category: "LCD", priceNY: "4,490,000", priceKM: "2,690,000", discount: 40, quantity: "KGH" },
+            { name: 'Màn hình MSI MAG 244F 24" Rapid IPS 200Hz chuyên game', category: "LCD", priceNY: "3,990,000", priceKM: "2,190,000", discount: 45, quantity: "KGH" },
+            { name: 'Màn hình Asus TUF GAMING VG249QE5A-R 24" IPS 146Hz chuyên game', category: "LCD", priceNY: "3,990,000", priceKM: "2,390,000", discount: 40, quantity: "KGH" },
+            { name: 'Màn hình LG 27U631A-B 27" IPS 2K 100Hz HDR10', category: "LCD", priceNY: "6,590,000", priceKM: "4,050,000", discount: 39, quantity: "KGH" },
+            { name: 'Màn hình AOC Q27G11E 27" IPS 2K 180Hz chuyên game', category: "LCD", priceNY: "5,990,000", priceKM: "3,790,000", discount: 37, quantity: "KGH" },
+            { name: 'Màn hình ViewSonic VA3209-2K-MHD 32" IPS 2K 75Hz HDR10', category: "LCD", priceNY: "6,690,000", priceKM: "4,290,000", discount: 36, quantity: "KGH" },
+            { name: 'Màn hình E-DRA EGM27F120PV 27" IPS 120Hz', category: "LCD", priceNY: "3,190,000", priceKM: "1,790,000", discount: 44, quantity: "KGH" },
+            { name: 'Màn hình LG 24GS60F-B 24" IPS 180Hz HDR10 Gsync chuyên game', category: "LCD", priceNY: "4,190,000", priceKM: "2,790,000", discount: 33, quantity: "KGH" },
+            { name: 'Màn hình Viewsonic VA2732A-H 27" IPS 120Hz viền mỏng', category: "LCD", priceNY: "3,590,000", priceKM: "2,390,000", discount: 33, quantity: "KGH" },
+            { name: 'Màn hình AOC Q27G40E 27" Fast IPS 2K 180Hz chuyên game', category: "LCD", priceNY: "5,990,000", priceKM: "3,690,000", discount: 38, quantity: "KGH" },
+            { name: 'Màn hình E-DRA EGM24F120PV 24" IPS 120Hz', category: "LCD", priceNY: "2,690,000", priceKM: "1,590,000", discount: 41, quantity: "KGH" },
+            { name: 'Màn hình LG 27G850A-B 27" Nano IPS Black 4K 240Hz-FHD 480Hz chuyên game', category: "LCD", priceNY: "23,990,000", priceKM: "15,790,000", discount: 34, quantity: "KGH" },
+            { name: 'Màn hình LG 24GS65F-B 24" IPS 180Hz HDR10 Gsync chuyên game', category: "LCD", priceNY: "4,390,000", priceKM: "1,990,000", discount: 55, quantity: 20 },
+            { name: 'Màn hình LG 24GS65F-B 24" IPS 180Hz HDR10 Gsync chuyên game', category: "LCD", priceNY: "4,390,000", priceKM: "2,790,000", discount: 36, quantity: "KGH" },
+            { name: 'Màn hình E-DRA EGM24F100PV 24" IPS 100Hz', category: "LCD", priceNY: "2,490,000", priceKM: "990,000", discount: 60, quantity: 20 },
+            { name: 'Màn hình E-DRA EGM24F100PV 24" IPS 100Hz', category: "LCD", priceNY: "2,490,000", priceKM: "1,390,000", discount: 44, quantity: "KGH" },
+            { name: 'Màn hình ASUS VA27AQ 27" IPS 2K 75Hz viền mỏng', category: "LCD", priceNY: "4,490,000", priceKM: "3,090,000", discount: 31, quantity: "KGH" },
+            { name: 'Màn hình Acer KG240Y-X1 24" IPS 200Hz Gsync chuyên game', category: "LCD", priceNY: "3,790,000", priceKM: "2,390,000", discount: 37, quantity: "KGH" },
+            { name: 'Màn hình LG 27UP850K-W 27" IPS 4K HDR USBC Chuyên Đồ họa', category: "LCD", priceNY: "10,890,000", priceKM: "7,890,000", discount: 28, quantity: "KGH" },
+            { name: 'Màn hình Asus TUF GAMING VG259Q5A 25" Fast IPS 200Hz Gsync chuyên game', category: "LCD", priceNY: "3,990,000", priceKM: "2,790,000", discount: 30, quantity: "KGH" },
+            { name: 'Màn hình ViewSonic VX2479-HD-PRO 24" IPS 180Hz chuyên game', category: "LCD", priceNY: "3,390,000", priceKM: "2,390,000", discount: 29, quantity: "KGH" },
+            { name: 'Màn hình ASUS ProArt PA278CV 27" IPS 2K 75Hz USBC chuyên đồ họa', category: "LCD", priceNY: "10,990,000", priceKM: "7,090,000", discount: 35, quantity: 10 },
+            { name: 'Màn hình cong ASUS TUF GAMING VG34VQL3A 34" 2K 180Hz HDR chuyên game', category: "LCD", priceNY: "10,990,000", priceKM: "7,890,000", discount: 28, quantity: "KGH" },
+            { name: 'Màn hình ASUS VZ279HG 27" IPS 120Hz viền mỏng', category: "LCD", priceNY: "3,790,000", priceKM: "2,690,000", discount: 29, quantity: "KGH" },
+            { name: 'Màn hình E-DRA EGM25F200H 25" IPS 200Hz chuyên game', category: "LCD", priceNY: "3,390,000", priceKM: "990,000", discount: 71, quantity: 10 },
+            { name: 'Màn hình E-DRA EGM25F200H 25" IPS 200Hz chuyên game', category: "LCD", priceNY: "3,390,000", priceKM: "2,090,000", discount: 38, quantity: "KGH" },
+            { name: 'Màn hình MSI MAG 255PXF 25" Rapid IPS 300Hz Gsync chuyên game', category: "LCD", priceNY: "5,990,000", priceKM: "4,190,000", discount: 30, quantity: "KGH" },
+            { name: 'Màn hình Viewsonic VA2432-H-2 24" IPS 100Hz viền mỏng', category: "LCD", priceNY: "2,590,000", priceKM: "1,790,000", discount: 31, quantity: "KGH" },
+            { name: 'Màn hình LG 27U411A-B 27" IPS 120Hz HDR10 siêu mỏng', category: "LCD", priceNY: "3,590,000", priceKM: "2,690,000", discount: 25, quantity: "KGH" },
+            { name: 'Màn hình Philips 27E2N1500L 27" IPS 2K 75Hz', category: "LCD", priceNY: "3,590,000", priceKM: "2,550,000", discount: 29, quantity: "KGH" },
+            { name: 'Màn hình ASUS ProArt PA248QV 24" IPS 75Hz 16:10 chuyên đồ họa', category: "LCD", priceNY: "6,290,000", priceKM: "4,690,000", discount: 25, quantity: "KGH" },
+            { name: 'Màn hình LG 24U631A-B 24" IPS 2K 100Hz USBC', category: "LCD", priceNY: "4,990,000", priceKM: "3,690,000", discount: 26, quantity: "KGH" },
+            { name: 'Màn hình Philips 27M2N3500PF 27" IPS 2K 260Hz chuyên game', category: "LCD", priceNY: "5,990,000", priceKM: "4,090,000", discount: 32, quantity: 10 },
+            { name: 'Màn hình Asus ROG Strix XG32UCWMG 32" WOLED 4K 240Hz-FHD 480Hz chuyên game', category: "LCD", priceNY: "37,990,000", priceKM: "27,690,000", discount: 27, quantity: "KGH" },
+            { name: 'Màn hình AOC 25B36X 25" IPS 144Hz chuyên game', category: "LCD", priceNY: "2,790,000", priceKM: "1,950,000", discount: 30, quantity: "KGH" },
+            { name: 'Màn hình MSI MAG 274QF X24 27" Rapid IPS 2K 240Hz chuyên game', category: "LCD", priceNY: "6,990,000", priceKM: "4,650,000", discount: 33, quantity: "KGH" },
+            { name: 'Màn hình ASUS VZ249HG 24" IPS 120Hz viền mỏng', category: "LCD", priceNY: "2,990,000", priceKM: "2,090,000", discount: 30, quantity: "KGH" },
+            { name: 'Màn hình LG 27UP600K-W 27" IPS 4K HDR10', category: "LCD", priceNY: "6,890,000", priceKM: "5,290,000", discount: 23, quantity: "KGH" },
+            { name: 'Màn hình MSI PRO MP243L E14 24" IPS 144Hz', category: "LCD", priceNY: "2,990,000", priceKM: "2,090,000", discount: 30, quantity: "KGH" },
+            { name: 'Màn hình ViewSonic VX2479A-HD-PRO 24" IPS 240Hz 1ms chuyên game', category: "LCD", priceNY: "4,490,000", priceKM: "2,590,000", discount: 42, quantity: "KGH" },
+            { name: 'Màn hình GIGABYTE M27QA 27" IPS 2K 180Hz chuyên game', category: "LCD", priceNY: "6,990,000", priceKM: "4,690,000", discount: 33, quantity: "KGH" },
+            { name: 'Màn hình AOC 27B36X 27" IPS 144Hz chuyên game', category: "LCD", priceNY: "3,190,000", priceKM: "2,350,000", discount: 26, quantity: "KGH" },
+            { name: 'Màn hình ViewSonic VX2758A-2K-PRO-4 27" IPS 2K 180Hz chuyên game', category: "LCD", priceNY: "5,990,000", priceKM: "4,290,000", discount: 28, quantity: "KGH" },
+            { name: 'Màn hình ASUS TUF GAMING VG27AQM5A 27" Fast IPS 2K 300Hz chuyên game', category: "LCD", priceNY: "8,490,000", priceKM: "6,390,000", discount: 25, quantity: "KGH" },
+            { name: 'Màn hình Asus ROG Strix XG27ACDMS 27" QD-OLED 2K 280Hz Gsync chuyên game', category: "LCD", priceNY: "19,990,000", priceKM: "14,890,000", discount: 26, quantity: "KGH" },
+            { name: 'Màn hình GIGABYTE M27UP 27" IPS 4K 160Hz-FHD 320Hz chuyên game', category: "LCD", priceNY: "11,990,000", priceKM: "9,090,000", discount: 24, quantity: "KGH" },
+            { name: 'Màn hình Philips 27M2N3500UK 27" IPS 2K 300Hz chuyên game', category: "LCD", priceNY: "7,590,000", priceKM: "5,590,000", discount: 26, quantity: "KGH" },
+            { name: 'Màn hình Acer KG270-X1 27" IPS 200Hz Gsync chuyên game', category: "LCD", priceNY: "4,190,000", priceKM: "3,100,000", discount: 26, quantity: "KGH" },
+            { name: 'Màn hình ASUS TUF GAMING VG27AQ5A 27" Fast IPS 2K 210Hz chuyên game', category: "LCD", priceNY: "5,990,000", priceKM: "4,590,000", discount: 23, quantity: "KGH" },
+            { name: 'Màn hình AOC Q27G42ZE 27" Fast IPS 2K 260Hz chuyên game', category: "LCD", priceNY: "5,990,000", priceKM: "4,290,000", discount: 28, quantity: "KGH" },
+            { name: 'Màn hình Acer VG271U M3 27" IPS 2K 180Hz chuyên game', category: "LCD", priceNY: "5,490,000", priceKM: "3,790,000", discount: 31, quantity: "KGH" },
+            { name: 'Màn hình E-DRA EGM22F100H 22" IPS 100Hz', category: "LCD", priceNY: "1,890,000", priceKM: "1,290,000", discount: 32, quantity: "KGH" },
+            { name: 'Màn hình cong GIGABYTE G34WQC2 34" 2K 200Hz chuyên game', category: "LCD", priceNY: "8,990,000", priceKM: "7,290,000", discount: 19, quantity: "KGH" },
+            { name: 'Màn hình MSI MAG 274F 27" Rapid IPS 200Hz chuyên game', category: "LCD", priceNY: "3,990,000", priceKM: "2,890,000", discount: 28, quantity: "KGH" },
+            { name: 'Màn hình MSI MAG 245F X24 24" Rapid IPS 240Hz chuyên game', category: "LCD", priceNY: "3,990,000", priceKM: "2,790,000", discount: 30, quantity: "KGH" },
+            { name: 'Màn hình cong ViewSonic VX3418C-2K 34" 2K 180Hz chuyên game', category: "LCD", priceNY: "8,900,000", priceKM: "7,090,000", discount: 20, quantity: "KGH" },
+            { name: 'Màn hình Philips 27M3N3540Q 27" IPS 2K 210Hz chuyên game', category: "LCD", priceNY: "4,990,000", priceKM: "3,690,000", discount: 26, quantity: 10 },
+            { name: 'Màn hình MSI MAG 255XF 25" Rapid IPS 300Hz FreeSync Premium chuyên game', category: "LCD", priceNY: "4,990,000", priceKM: "3,900,000", discount: 22, quantity: "KGH" },
+            { name: 'Màn hình Philips 27M2N3500PA 27" IPS 2K 260Hz chuyên game', category: "LCD", priceNY: "5,990,000", priceKM: "4,490,000", discount: 25, quantity: "KGH" },
+            { name: 'Màn hình AOC 24G11ZE 24" Fast IPS 240Hz chuyên game', category: "LCD", priceNY: "3,190,000", priceKM: "2,550,000", discount: 20, quantity: "KGH" },
+            { name: 'Màn hình AOC U27G4 27" Fast IPS 4K 160Hz-FHD 320Hz chuyên game', category: "LCD", priceNY: "7,990,000", priceKM: "6,590,000", discount: 18, quantity: "KGH" },
+            { name: 'Màn hình ViewSonic VA2708-2K-MHD 27" IPS 2K 100Hz', category: "LCD", priceNY: "4,190,000", priceKM: "3,390,000", discount: 19, quantity: "KGH" },
+            { name: 'Màn hình ASUS ProArt PA248QFV 24" IPS 100Hz 16:10 chuyên đồ họa', category: "LCD", priceNY: "5,990,000", priceKM: "4,890,000", discount: 18, quantity: "KGH" },
+            { name: 'Màn hình LG 24U411A-B 24" IPS 120Hz HDR10 siêu mỏng', category: "LCD", priceNY: "2,590,000", priceKM: "2,250,000", discount: 13, quantity: "KGH" },
+            { name: 'Màn hình E-DRA EGM27Q200 27" IPS 2K 200Hz chuyên game', category: "LCD", priceNY: "3,990,000", priceKM: "3,090,000", discount: 23, quantity: "KGH" },
+            { name: 'Màn hình AOC 25G4K 25" Fast IPS 420Hz chuyên game', category: "LCD", priceNY: "7,490,000", priceKM: "5,850,000", discount: 22, quantity: "KGH" },
+            { name: 'Màn hình AOC Q27G4ZD 27" QD-OLED 2K 280Hz chuyên game', category: "LCD", priceNY: "14,990,000", priceKM: "11,990,000", discount: 20, quantity: 2 },
+            { name: 'Màn hình AOC CS25G 25" Fast IPS 310Hz Gsync chuyên game', category: "LCD", priceNY: "5,090,000", priceKM: "4,390,000", discount: 14, quantity: "KGH" },
+            { name: 'Màn hình ASUS ProArt PA278QGV 27" IPS 2K 120Hz chuyên đồ họa', category: "LCD", priceNY: "8,990,000", priceKM: "7,690,000", discount: 14, quantity: "KGH" },
             { name: "MB-GIG-Z790-AORUS-XTRE-X-ICE-D5", category: "Mainboard", priceNY: "49,990,000", priceKM: "19,990,000", discount: 60, quantity: 2 },
             { name: "MB-MSI-MAG-X870-TOMAHAWK-WF-D5", category: "Mainboard", priceNY: "10,890,000", priceKM: "8,190,000", discount: 25, quantity: "KGH" },
             { name: "MB-ASU-Z790-A-ROG-STRIX-GAM-WIFI-II-D5", category: "Mainboard", priceNY: "14,990,000", priceKM: "8,290,000", discount: 45, quantity: "KGH" },
@@ -390,37 +435,144 @@
             { name: "CPU-INT-I5-13400 (Giảm còn 4.990k khi mua cùng 1 main H7/B7 bất kỳ)", category: "CPU", priceNY: "5,890,000", priceKM: "4,990,000", discount: 15, quantity: 50 }
         ];
 
+        // Separate products into two groups
+        const limitedProducts = allProducts.filter(p => p.quantity !== "KGH");
+        const unlimitedProducts = allProducts.filter(p => p.quantity === "KGH");
+
+        let currentGroup = 'limited';
         let currentCategory = 'all';
+
+        // Get unique categories for each group
+        function getCategories(products) {
+            const categories = {};
+            products.forEach(p => {
+                categories[p.category] = (categories[p.category] || 0) + 1;
+            });
+            return categories;
+        }
+
+        const limitedCategories = getCategories(limitedProducts);
+        const unlimitedCategories = getCategories(unlimitedProducts);
+
+        // Update group statistics
+        document.getElementById('limited-count').textContent = `${limitedProducts.length} Sản Phẩm`;
+        document.getElementById('unlimited-count').textContent = `${unlimitedProducts.length} Sản Phẩm`;
+        document.getElementById('limited-highlight').textContent = limitedProducts.filter(p => p.discount >= 50).length;
+        document.getElementById('unlimited-highlight').textContent = unlimitedProducts.filter(p => p.discount >= 50).length;
 
         function formatPrice(price) {
             return price;
         }
 
-        function renderProducts(category = 'all') {
+        function showGroup(group) {
+            currentGroup = group;
+            currentCategory = 'all';
+
+            // Update active tab
+            document.getElementById('tab-limited').classList.remove('active');
+            document.getElementById('tab-unlimited').classList.remove('active');
+            document.getElementById(`tab-${group}`).classList.add('active');
+
+            // Update section title and color
+            const sectionIcon = document.getElementById('section-icon');
+            const sectionName = document.getElementById('section-name');
+            const tableHeader = document.getElementById('table-header');
+
+            if (group === 'limited') {
+                sectionIcon.textContent = '🔥';
+                sectionName.textContent = 'CÓ GIỚI HẠN SỐ LƯỢNG';
+                tableHeader.className = 'bg-red-100';
+                tableHeader.querySelectorAll('th').forEach(th => {
+                    th.className = th.className.replace('text-purple-800', '').replace('text-blue-800', '') + ' text-red-800';
+                });
+            } else {
+                sectionIcon.textContent = '♾️';
+                sectionName.textContent = 'KHÔNG GIỚI HẠN (KGH)';
+                tableHeader.className = 'bg-blue-100';
+                tableHeader.querySelectorAll('th').forEach(th => {
+                    th.className = th.className.replace('text-red-800', '').replace('text-purple-800', '') + ' text-blue-800';
+                });
+            }
+
+            // Render category tabs
+            renderCategoryTabs();
+
+            // Render products
+            renderProducts();
+        }
+
+        function renderCategoryTabs() {
+            const categories = currentGroup === 'limited' ? limitedCategories : unlimitedCategories;
+            const products = currentGroup === 'limited' ? limitedProducts : unlimitedProducts;
+            const tabsContainer = document.getElementById('category-tabs');
+            const baseColor = currentGroup === 'limited' ? 'red' : 'blue';
+
+            let html = `<button onclick="showCategory('all')" id="btn-all" class="tab-button px-6 py-3 bg-${baseColor}-600 text-white rounded-lg font-bold shadow-lg">
+                Tất Cả (${products.length})
+            </button>`;
+
+            const sortedCategories = Object.entries(categories).sort((a, b) => b[1] - a[1]);
+            sortedCategories.forEach(([cat, count]) => {
+                const btnId = `btn-${cat.replace(/ /g, '-')}`;
+                html += `<button onclick="showCategory('${cat}')" id="${btnId}" class="tab-button px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-bold shadow-lg">
+                    ${cat} (${count})
+                </button>`;
+            });
+
+            tabsContainer.innerHTML = html;
+        }
+
+        function showCategory(category) {
+            currentCategory = category;
+
+            // Update active button
+            const baseColor = currentGroup === 'limited' ? 'red' : 'blue';
+            document.querySelectorAll('#category-tabs button').forEach(btn => {
+                btn.className = 'tab-button px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-bold shadow-lg';
+            });
+
+            const selectedBtn = document.getElementById(`btn-${category === 'all' ? 'all' : category.replace(/ /g, '-')}`);
+            if (selectedBtn) {
+                selectedBtn.className = `tab-button px-6 py-3 bg-${baseColor}-600 text-white rounded-lg font-bold shadow-lg`;
+            }
+
+            // Update subtitle
+            document.getElementById('category-subtitle').textContent = category === 'all' ? '' : `- ${category}`;
+
+            renderProducts();
+        }
+
+        function renderProducts() {
             const tbody = document.getElementById('products-table');
+            const products = currentGroup === 'limited' ? limitedProducts : unlimitedProducts;
+            const baseColor = currentGroup === 'limited' ? 'red' : 'blue';
             tbody.innerHTML = '';
 
-            const filteredProducts = category === 'all'
+            const filteredProducts = currentCategory === 'all'
                 ? products
-                : products.filter(p => p.category === category);
+                : products.filter(p => p.category === currentCategory);
 
             filteredProducts.forEach((product, index) => {
                 const row = document.createElement('tr');
                 const isHighlight = product.discount >= 50;
                 row.className = `hover:bg-gray-50 ${isHighlight ? 'highlight-deal' : ''}`;
 
+                const quantityBadge = product.quantity === "KGH"
+                    ? '<span class="badge-kgh">KGH</span>'
+                    : `<span class="badge-limited">${product.quantity}</span>`;
+
                 row.innerHTML = `
                     <td class="px-4 py-3">${index + 1}</td>
                     <td class="px-4 py-3 font-medium">${product.name}</td>
                     <td class="px-4 py-3">${product.category}</td>
                     <td class="px-4 py-3 text-right text-gray-500 line-through">${formatPrice(product.priceNY)}</td>
-                    <td class="px-4 py-3 text-right font-bold text-purple-600">${formatPrice(product.priceKM)}</td>
+                    <td class="px-4 py-3 text-right font-bold text-${baseColor}-600">${formatPrice(product.priceKM)}</td>
                     <td class="px-4 py-3 text-center">
-                        <span class="${product.discount >= 50 ? 'bg-red-600 text-white' : 'bg-purple-100 text-purple-800'} px-2 py-1 rounded font-bold">
+                        <span class="${product.discount >= 50 ? 'bg-red-600 text-white' : `bg-${baseColor}-100 text-${baseColor}-800`} px-2 py-1 rounded font-bold">
                             ${product.discount}%
                         </span>
                     </td>
-                    <td class="px-4 py-3 text-center">${product.quantity}</td>
+                    <td class="px-4 py-3 text-center">${quantityBadge}</td>
                 `;
 
                 tbody.appendChild(row);
@@ -430,48 +582,8 @@
             document.getElementById('product-count').textContent = `Tổng: ${filteredProducts.length} sản phẩm`;
         }
 
-        function showCategory(category) {
-            currentCategory = category;
-
-            // Reset all buttons
-            const buttons = ['all', 'LCD', 'Peri', 'Card màn hình', 'Laptop', 'Mainboard', 'SSD', 'Case', 'CPU'];
-            buttons.forEach(cat => {
-                const btn = document.getElementById(`btn-${cat === 'Card màn hình' ? 'vga' : cat}`);
-                if (btn) {
-                    btn.className = 'tab-button px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-bold shadow-lg';
-                }
-            });
-
-            // Highlight selected button
-            const selectedBtn = document.getElementById(`btn-${category === 'Card màn hình' ? 'vga' : category}`);
-            if (selectedBtn) {
-                selectedBtn.className = 'tab-button px-6 py-3 bg-purple-600 text-white rounded-lg font-bold shadow-lg';
-            }
-
-            // Update title
-            const categoryNames = {
-                'all': '🔥 Tất Cả Sản Phẩm Layer 2',
-                'LCD': '🖥️ Màn Hình LCD',
-                'Peri': '🎮 Phụ Kiện (Peri)',
-                'Card màn hình': '🎯 Card Màn Hình (VGA)',
-                'Laptop': '💻 Laptop & Phụ Kiện',
-                'Mainboard': '⚙️ Bo Mạch Chủ (Mainboard)',
-                'SSD': '💾 Ổ Cứng SSD',
-                'Case': '🖥️ Vỏ Máy Tính (Case)',
-                'CPU': '🔧 Bộ Vi Xử Lý (CPU)'
-            };
-            document.getElementById('category-title').textContent = categoryNames[category] || category;
-
-            // Render products
-            renderProducts(category);
-        }
-
         // Initial render
-        renderProducts();
-
-        // Update highlight count
-        const highlightCount = products.filter(p => p.discount >= 50).length;
-        document.getElementById('highlight-count').textContent = highlightCount;
+        showGroup('limited');
     </script>
 </body>
 </html>
