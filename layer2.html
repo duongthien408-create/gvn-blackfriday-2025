@@ -548,9 +548,16 @@
             const baseColor = currentGroup === 'limited' ? 'red' : 'blue';
             tbody.innerHTML = '';
 
-            const filteredProducts = currentCategory === 'all'
+            let filteredProducts = currentCategory === 'all'
                 ? products
                 : products.filter(p => p.category === currentCategory);
+
+            // Sort by discount amount (Giá NY - Giá KM) descending
+            filteredProducts = filteredProducts.sort((a, b) => {
+                const amountA = parseInt(a.priceNY.replace(/,/g, '')) - parseInt(a.priceKM.replace(/,/g, ''));
+                const amountB = parseInt(b.priceNY.replace(/,/g, '')) - parseInt(b.priceKM.replace(/,/g, ''));
+                return amountB - amountA;
+            });
 
             filteredProducts.forEach((product, index) => {
                 const row = document.createElement('tr');
