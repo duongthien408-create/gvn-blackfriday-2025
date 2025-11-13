@@ -275,7 +275,7 @@ Toàn bộ thể lệ này chỉ áp dụng cho hình thức mua hàng trực ti
 
 ### Giai Đoạn Teasing (11/13 - 11/17)
 - **11/13-11/15**: Teasing Phase 1, 2, 3
-- **11/16**: Công bố ĐẤU ÔNG
+- **11/16**: Công bố ĐÀN ÔNG
 - **11/17**: Post Giới thiệu tổng quan chương trình
 
 ### Giai Đoạn Hâm Nóng (11/18 - 11/27)
