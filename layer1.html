@@ -218,63 +218,83 @@
     </footer>
 
     <script>
-        // Product data from CSV - Layer 01 only
-        const allProducts = [
-            { name: "Phụ kiện Razer RIPSAW", category: "Peri", priceNY: "4,490,000", priceKM: "90,000", discount: 98, quantity: 1 },
-            { name: "Tai nghe HP HyperX Cloud III Wireless Red", category: "Peri", priceNY: "4,390,000", priceKM: "99,000", discount: 98, quantity: 15 },
-            { name: "ROG Gaming Charger Dock", category: "Peri", priceNY: "1,690,000", priceKM: "290,000", discount: 83, quantity: 9 },
-            { name: "Tay cầm chơi game Razer Wolverine V2 Chroma White (Xbox Series X/S)", category: "Peri", priceNY: "4,490,000", priceKM: "990,000", discount: 78, quantity: 1 },
-            { name: "RAM-GSK-TRIDENTZ-RGB-1X16GB-5600-BLK-DDR5", category: "RAM", priceNY: "5,995,000", priceKM: "1,990,000", discount: 67, quantity: 1 },
-            { name: "MB-GIG-X299X-AORUS-MAS", category: "Mainboard", priceNY: "12,990,000", priceKM: "3,990,000", discount: 69, quantity: 1 },
-            { name: "RAM-GSK-TRIDENTZ-RGB-1X16GB-5600-BLK-DDR5-CL30", category: "RAM", priceNY: "5,590,000", priceKM: "1,990,000", discount: 64, quantity: 1 },
-            { name: "Máy lọc không khí Honeywell Air Touch V1", category: "Peri", priceNY: "1,250,000", priceKM: "290,000", discount: 77, quantity: 9 },
-            { name: "RAM-KING-FURY-BEAST-RGB-32GB-6000-DDR5", category: "RAM", priceNY: "2,990,000", priceKM: "1,290,000", discount: 57, quantity: 2 },
-            { name: "Ghế Ergonomic Warrior Hero series WEC509 Black/Red", category: "Peri", priceNY: "4,390,000", priceKM: "1,490,000", discount: 66, quantity: 6 },
-            { name: 'Màn hình ViewSonic VX2882-4KP 28" IPS 4K 150Hz HDR10 USBC', category: "LCD", priceNY: "15,990,000", priceKM: "3,990,000", discount: 75, quantity: 2 },
-            { name: "RAM-KING-FURY-1X16-3600-RGB-HX436C18FB4AK2-32", category: "RAM", priceNY: "2,990,000", priceKM: "1,290,000", discount: 57, quantity: 1 },
-            { name: "Chuột Logitech G502 Hero Gaming", category: "Peri", priceNY: "1,090,000", priceKM: "390,000", discount: 64, quantity: 15 },
-            { name: "RAM-TEAM-DELTA-1x8G-3600-RGB-BLACK", category: "RAM", priceNY: "2,190,000", priceKM: "990,000", discount: 55, quantity: 1 },
-            { name: "RAM-TEAM-DELTA-1x8G-3600-RGB-WHITE", category: "RAM", priceNY: "2,190,000", priceKM: "990,000", discount: 55, quantity: 1 },
-            { name: "Bàn phím Leobog Hi86 TM (Trắng đen/ Nimbus V3 switch) HI8602", category: "Peri", priceNY: "2,600,000", priceKM: "990,000", discount: 62, quantity: 2 },
-            { name: 'Màn hình MSI MAG 244F 24" Rapid IPS 200Hz chuyên game', category: "LCD", priceNY: "3,990,000", priceKM: "1,490,000", discount: 63, quantity: 9 },
-            { name: 'Màn hình Viewsonic VA2432A-H 24" IPS 120Hz viền mỏng', category: "LCD", priceNY: "3,590,000", priceKM: "990,000", discount: 72, quantity: 21 },
-            { name: 'Màn hình Acer KG240Y-X1 24" IPS 200Hz Gsync chuyên game', category: "LCD", priceNY: "3,790,000", priceKM: "990,000", discount: 74, quantity: 15 },
-            { name: 'Màn hình ASUS ProArt PA248QV 24" IPS 75Hz 16:10 chuyên đồ họa', category: "LCD", priceNY: "6,290,000", priceKM: "1,990,000", discount: 68, quantity: 2 },
-            { name: 'Màn hình ASUS VZ249HG 24" IPS 120Hz viền mỏng', category: "LCD", priceNY: "2,990,000", priceKM: "990,000", discount: 67, quantity: 9 },
-            { name: "Giá treo màn hình máy tính North Bayou NB-F80-XV Xám Xanh", category: "LCD", priceNY: "490,000", priceKM: "9,000", discount: 98, quantity: 21 },
-            { name: "Màn hình Gaming AOPEN Fire Legend 25XV2Q F 390Hz", category: "Laptop", priceNY: "8,390,000", priceKM: "1,990,000", discount: 76, quantity: 1 },
-            { name: "Laptop MSI Modern 14 F1MG-432VN", category: "Laptop", priceNY: "17,290,000", priceKM: "5,990,000", discount: 65, quantity: 2 }
+        // Product data - Parsed from CSV, distributed by day
+        const day1Products = [
+            { name: "Màn hình ViewSonic VX2882-4KP 28\" IPS 4K 150Hz HDR10 USBC", category: "LCD", priceNY: "15,990,000", priceKM: "3,990,000", discount: 75, quantity: 1, discountAmount: 12000000 },
+            { name: "Laptop MSI Modern 14 F1MG-432VN", category: "Laptop", priceNY: "17,290,000", priceKM: "5,990,000", discount: 17, quantity: 1, discountAmount: 11300000 },
+            { name: "MB-GIG-X299X-AORUS-MAS", category: "Mainboard", priceNY: "12,990,000", priceKM: "3,990,000", discount: 69, quantity: 1, discountAmount: 9000000 },
+            { name: "Màn hình Gaming AOPEN Fire Legend 25XV2Q F 390Hz", category: "Laptop", priceNY: "8,390,000", priceKM: "1,990,000", discount: 17, quantity: 1, discountAmount: 6400000 },
+            { name: "Phụ kiện Razer RIPSAW", category: "Peri", priceNY: "4,490,000", priceKM: "90,000", discount: 98, quantity: 1, discountAmount: 4400000 },
+            { name: "Màn hình ASUS ProArt PA248QV 24\" IPS 75Hz 16:10 chuyên đồ họa", category: "LCD", priceNY: "6,290,000", priceKM: "1,990,000", discount: 68, quantity: 1, discountAmount: 4300000 },
+            { name: "Tai nghe HP HyperX Cloud III Wireless Red", category: "Peri", priceNY: "4,390,000", priceKM: "99,000", discount: 98, quantity: 7, discountAmount: 4291000 },
+            { name: "RAM-GSK-TRIDENTZ-RGB-1X16GB-5600-BLK-DDR5", category: "RAM", priceNY: "5,995,000", priceKM: "1,990,000", discount: 67, quantity: 1, discountAmount: 4005000 },
+            { name: "RAM-GSK-TRIDENTZ-RGB-1X16GB-5600-BLK-DDR5-CL30", category: "RAM", priceNY: "5,590,000", priceKM: "1,990,000", discount: 64, quantity: 1, discountAmount: 3600000 },
+            { name: "Tay cầm chơi game Razer Wolverine V2 Chroma White (Xbox Series X/S)", category: "Peri", priceNY: "4,490,000", priceKM: "990,000", discount: 78, quantity: 1, discountAmount: 3500000 },
+            { name: "Ghế Ergonomic Warrior Hero series WEC509 Black/Red", category: "Peri", priceNY: "4,390,000", priceKM: "1,490,000", discount: 66, quantity: 2, discountAmount: 2900000 },
+            { name: "Màn hình Acer KG240Y-X1 24\" IPS 200Hz Gsync chuyên game", category: "LCD", priceNY: "3,790,000", priceKM: "990,000", discount: 74, quantity: 8, discountAmount: 2800000 },
+            { name: "Màn hình Viewsonic VA2432A-H 24\" IPS 120Hz viền mỏng", category: "LCD", priceNY: "3,590,000", priceKM: "990,000", discount: 72, quantity: 10, discountAmount: 2600000 },
+            { name: "Màn hình MSI MAG 244F 24\" Rapid IPS 200Hz chuyên game", category: "LCD", priceNY: "3,990,000", priceKM: "1,490,000", discount: 63, quantity: 5, discountAmount: 2500000 },
+            { name: "Màn hình ASUS VZ249HG 24\" IPS 120Hz viền mỏng", category: "LCD", priceNY: "2,990,000", priceKM: "990,000", discount: 67, quantity: 3, discountAmount: 2000000 },
+            { name: "RAM-KING-FURY-BEAST-RGB-32GB-6000-DDR5", category: "RAM", priceNY: "2,990,000", priceKM: "1,290,000", discount: 57, quantity: 1, discountAmount: 1700000 },
+            { name: "RAM-KING-FURY-1X16-3600-RGB-HX436C18FB4AK2-32", category: "RAM", priceNY: "2,990,000", priceKM: "1,290,000", discount: 57, quantity: 1, discountAmount: 1700000 },
+            { name: "Bàn phím Leobog Hi86 TM (Trắng đen/ Nimbus V3 switch) HI8602", category: "Peri", priceNY: "2,600,000", priceKM: "990,000", discount: 62, quantity: 1, discountAmount: 1610000 },
+            { name: "ROG Gaming Charger Dock", category: "Peri", priceNY: "1,690,000", priceKM: "290,000", discount: 83, quantity: 3, discountAmount: 1400000 },
+            { name: "RAM-TEAM-DELTA-1x8G-3600-RGB-BLACK", category: "RAM", priceNY: "2,190,000", priceKM: "990,000", discount: 55, quantity: 1, discountAmount: 1200000 },
+            { name: "RAM-TEAM-DELTA-1x8G-3600-RGB-WHITE", category: "RAM", priceNY: "2,190,000", priceKM: "990,000", discount: 55, quantity: 1, discountAmount: 1200000 },
+            { name: "Máy lọc không khí Honeywell Air Touch V1", category: "Peri", priceNY: "1,250,000", priceKM: "290,000", discount: 77, quantity: 3, discountAmount: 960000 },
+            { name: "Chuột Logitech G502 Hero Gaming", category: "Peri", priceNY: "1,090,000", priceKM: "390,000", discount: 64, quantity: 8, discountAmount: 700000 },
+            { name: "Giá treo màn hình máy tính North Bayou NB-F80-XV Xám Xanh", category: "LCD", priceNY: "490,000", priceKM: "9,000", discount: 98, quantity: 7, discountAmount: 481000 }
         ];
 
-        // Calculate discount amount for each product
-        allProducts.forEach(product => {
-            const priceNY = parseInt(product.priceNY.replace(/,/g, ''));
-            const priceKM = parseInt(product.priceKM.replace(/,/g, ''));
-            product.discountAmount = priceNY - priceKM;
-        });
+        const day2Products = [
+            { name: "Màn hình ViewSonic VX2882-4KP 28\" IPS 4K 150Hz HDR10 USBC", category: "LCD", priceNY: "15,990,000", priceKM: "3,990,000", discount: 75, quantity: 1, discountAmount: 12000000 },
+            { name: "Laptop MSI Modern 14 F1MG-432VN", category: "Laptop", priceNY: "17,290,000", priceKM: "5,990,000", discount: 17, quantity: 1, discountAmount: 11300000 },
+            { name: "Màn hình ASUS ProArt PA248QV 24\" IPS 75Hz 16:10 chuyên đồ họa", category: "LCD", priceNY: "6,290,000", priceKM: "1,990,000", discount: 68, quantity: 1, discountAmount: 4300000 },
+            { name: "Tai nghe HP HyperX Cloud III Wireless Red", category: "Peri", priceNY: "4,390,000", priceKM: "99,000", discount: 98, quantity: 5, discountAmount: 4291000 },
+            { name: "Ghế Ergonomic Warrior Hero series WEC509 Black/Red", category: "Peri", priceNY: "4,390,000", priceKM: "1,490,000", discount: 66, quantity: 2, discountAmount: 2900000 },
+            { name: "Màn hình Acer KG240Y-X1 24\" IPS 200Hz Gsync chuyên game", category: "LCD", priceNY: "3,790,000", priceKM: "990,000", discount: 74, quantity: 5, discountAmount: 2800000 },
+            { name: "Màn hình Viewsonic VA2432A-H 24\" IPS 120Hz viền mỏng", category: "LCD", priceNY: "3,590,000", priceKM: "990,000", discount: 72, quantity: 8, discountAmount: 2600000 },
+            { name: "Màn hình MSI MAG 244F 24\" Rapid IPS 200Hz chuyên game", category: "LCD", priceNY: "3,990,000", priceKM: "1,490,000", discount: 63, quantity: 2, discountAmount: 2500000 },
+            { name: "Màn hình ASUS VZ249HG 24\" IPS 120Hz viền mỏng", category: "LCD", priceNY: "2,990,000", priceKM: "990,000", discount: 67, quantity: 3, discountAmount: 2000000 },
+            { name: "RAM-KING-FURY-BEAST-RGB-32GB-6000-DDR5", category: "RAM", priceNY: "2,990,000", priceKM: "1,290,000", discount: 57, quantity: 1, discountAmount: 1700000 },
+            { name: "Bàn phím Leobog Hi86 TM (Trắng đen/ Nimbus V3 switch) HI8602", category: "Peri", priceNY: "2,600,000", priceKM: "990,000", discount: 62, quantity: 1, discountAmount: 1610000 },
+            { name: "ROG Gaming Charger Dock", category: "Peri", priceNY: "1,690,000", priceKM: "290,000", discount: 83, quantity: 3, discountAmount: 1400000 },
+            { name: "Máy lọc không khí Honeywell Air Touch V1", category: "Peri", priceNY: "1,250,000", priceKM: "290,000", discount: 77, quantity: 3, discountAmount: 960000 },
+            { name: "Chuột Logitech G502 Hero Gaming", category: "Peri", priceNY: "1,090,000", priceKM: "390,000", discount: 64, quantity: 5, discountAmount: 700000 },
+            { name: "Giá treo màn hình máy tính North Bayou NB-F80-XV Xám Xanh", category: "LCD", priceNY: "490,000", priceKM: "9,000", discount: 98, quantity: 7, discountAmount: 481000 }
+        ];
 
-        // Sort all products by discount amount (descending)
-        allProducts.sort((a, b) => b.discountAmount - a.discountAmount);
+        const day3Products = [
+            { name: "Tai nghe HP HyperX Cloud III Wireless Red", category: "Peri", priceNY: "4,390,000", priceKM: "99,000", discount: 98, quantity: 3, discountAmount: 4291000 },
+            { name: "Ghế Ergonomic Warrior Hero series WEC509 Black/Red", category: "Peri", priceNY: "4,390,000", priceKM: "1,490,000", discount: 66, quantity: 2, discountAmount: 2900000 },
+            { name: "Màn hình Acer KG240Y-X1 24\" IPS 200Hz Gsync chuyên game", category: "LCD", priceNY: "3,790,000", priceKM: "990,000", discount: 74, quantity: 2, discountAmount: 2800000 },
+            { name: "Màn hình Viewsonic VA2432A-H 24\" IPS 120Hz viền mỏng", category: "LCD", priceNY: "3,590,000", priceKM: "990,000", discount: 72, quantity: 3, discountAmount: 2600000 },
+            { name: "Màn hình MSI MAG 244F 24\" Rapid IPS 200Hz chuyên game", category: "LCD", priceNY: "3,990,000", priceKM: "1,490,000", discount: 63, quantity: 2, discountAmount: 2500000 },
+            { name: "Màn hình ASUS VZ249HG 24\" IPS 120Hz viền mỏng", category: "LCD", priceNY: "2,990,000", priceKM: "990,000", discount: 67, quantity: 3, discountAmount: 2000000 },
+            { name: "ROG Gaming Charger Dock", category: "Peri", priceNY: "1,690,000", priceKM: "290,000", discount: 83, quantity: 3, discountAmount: 1400000 },
+            { name: "Máy lọc không khí Honeywell Air Touch V1", category: "Peri", priceNY: "1,250,000", priceKM: "290,000", discount: 77, quantity: 3, discountAmount: 960000 },
+            { name: "Chuột Logitech G502 Hero Gaming", category: "Peri", priceNY: "1,090,000", priceKM: "390,000", discount: 64, quantity: 2, discountAmount: 700000 },
+            { name: "Giá treo màn hình máy tính North Bayou NB-F80-XV Xám Xanh", category: "LCD", priceNY: "490,000", priceKM: "9,000", discount: 98, quantity: 7, discountAmount: 481000 }
+        ];
 
-        // Split products into 3 days (roughly equal distribution)
-        const totalProducts = allProducts.length;
-        const productsPerDay = Math.ceil(totalProducts / 3);
-
-        const day1Products = allProducts.slice(0, productsPerDay);
-        const day2Products = allProducts.slice(productsPerDay, productsPerDay * 2);
-        const day3Products = allProducts.slice(productsPerDay * 2);
+        // Calculate total quantities
+        const day1Quantity = day1Products.reduce((sum, p) => sum + p.quantity, 0);
+        const day2Quantity = day2Products.reduce((sum, p) => sum + p.quantity, 0);
+        const day3Quantity = day3Products.reduce((sum, p) => sum + p.quantity, 0);
+        const totalQuantity = day1Quantity + day2Quantity + day3Quantity;
 
         // Update statistics
-        const maxDiscount = Math.max(...allProducts.map(p => p.discount));
-        document.getElementById('total-deals').textContent = totalProducts;
+        const maxDiscount = 98;
+        const totalProducts = 24;
+        document.getElementById('total-deals').textContent = totalQuantity;
         document.getElementById('max-discount').textContent = `${maxDiscount}%`;
-        document.getElementById('header-subtitle').textContent = `${totalProducts} Deal Limited - Giảm Tới ${maxDiscount}%`;
-        document.getElementById('footer-text').textContent = `Layer 1: Deal Sốc Nhất - ${totalProducts} Deal (${day1Products.length}+${day2Products.length}+${day3Products.length})`;
+        document.getElementById('header-subtitle').textContent = `${totalProducts} Sản Phẩm - ${totalQuantity} Deal - Giảm Tới ${maxDiscount}%`;
+        document.getElementById('footer-text').textContent = `Layer 1: Deal Sốc Nhất - ${totalProducts} Sản Phẩm - ${totalQuantity} Deal (${day1Quantity}+${day2Quantity}+${day3Quantity})`;
 
         // Update day labels
-        document.getElementById('day1-label').textContent = `Ngày 1 (28/11) - ${day1Products.length} Deal`;
-        document.getElementById('day2-label').textContent = `Ngày 2 (29/11) - ${day2Products.length} Deal`;
-        document.getElementById('day3-label').textContent = `Ngày 3 (30/11) - ${day3Products.length} Deal`;
+        document.getElementById('day1-label').textContent = `Ngày 1 (28/11) - ${day1Products.length} SP (${day1Quantity} deal)`;
+        document.getElementById('day2-label').textContent = `Ngày 2 (29/11) - ${day2Products.length} SP (${day2Quantity} deal)`;
+        document.getElementById('day3-label').textContent = `Ngày 3 (30/11) - ${day3Products.length} SP (${day3Quantity} deal)`;
 
         function formatPrice(price) {
             return price;
@@ -288,7 +308,9 @@
             const tbody = document.getElementById(`day${dayNumber}-tbody`);
             tbody.innerHTML = '';
 
+            let dayQuantity = 0;
             products.forEach((product, index) => {
+                dayQuantity += product.quantity;
                 const row = document.createElement('tr');
                 const isHighlight = product.discount >= 90;
                 row.className = `hover:bg-gray-50 ${isHighlight ? 'bg-yellow-50' : ''}`;
@@ -309,15 +331,15 @@
                             ${product.discount}%
                         </span>
                     </td>
-                    <td class="px-4 py-3 text-center">${product.quantity}</td>
+                    <td class="px-4 py-3 text-center font-bold">${product.quantity}</td>
                 `;
 
                 tbody.appendChild(row);
             });
 
             // Update count
-            document.getElementById(`day${dayNumber}-count`).textContent = `Tổng: ${products.length} deal ngày ${dayNumber}`;
-            document.getElementById(`day${dayNumber}-title`).textContent = `🔥 Ngày ${dayNumber} (${27 + dayNumber}/11) - ${products.length} Deal`;
+            document.getElementById(`day${dayNumber}-count`).textContent = `Tổng: ${products.length} sản phẩm - ${dayQuantity} deal ngày ${dayNumber}`;
+            document.getElementById(`day${dayNumber}-title`).textContent = `🔥 Ngày ${dayNumber} (${27 + dayNumber}/11) - ${products.length} Sản Phẩm (${dayQuantity} Deal)`;
         }
 
         // Render all days
